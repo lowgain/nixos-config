@@ -15,7 +15,6 @@
   networking = {
     hostName = "cookie-sheet";
     wireless.enable = true; # Enables wireless support via wpa_supplicant.
-    networkmanager.enable = true;
     firewall = {
       enable = true;
       allowedTCPPorts = [ ];
@@ -60,19 +59,12 @@
 
   services.logind.lidSwitch = "ignore";
 
-  # modify display method
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-
   environment.systemPackages = with pkgs; [
     brightnessctl
   ];
 
   # Enable touchpad support
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   # Enable Flash Drives
   services.udisks2.enable = true;

@@ -1,6 +1,6 @@
 # See /modules/nixos/* for actual settings
 # This file is just *top-level* configuration.
-{ flake, pkgs, ... }:
+{ flake, ... }:
 
 let
   inherit (flake) inputs;
@@ -18,8 +18,8 @@ in
 
   services.openssh.enable = true;
   programs.ssh = {
-    enable = true;
-    addKeysToAgent = "yes";
+    startAgent = true;
+    extraConfig = "addKeysToAgent = yes";
   };
 
   # Enable home-manager for "lowgain" user

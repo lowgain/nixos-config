@@ -3,7 +3,7 @@
   programs.kitty = {
     enable = true;
     # Pick "name" from https://github.com/kovidgoyal/kitty-themes/blob/master/themes.json
-    theme = "Gruvbox";
+    themeFile = "gruvbox-light";
     font = {
       name = "Fira Code";
       size = 14;
