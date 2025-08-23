@@ -1,6 +1,6 @@
 # See default config here:
 # https://github.com/hyprwm/Hyprland/blob/main/example/hyprland.conf
-{ pkgs, lib, ... }:
+{ ... }:
 
 {
   wayland.windowManager.hyprland.settings = {
