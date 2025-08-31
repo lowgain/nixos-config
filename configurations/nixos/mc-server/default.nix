@@ -9,7 +9,14 @@ in
 {
   imports = [
     self.nixosModules.default
+    self.nixosModules.wsl
     self.nixosModules.mc-server
     ./configuration.nix
   ];
+
+  services.openssh.enable = true;
+  programs.ssh = {
+    startAgent = true;
+    extraConfig = "addKeysToAgent = yes";
+  };
 }
