@@ -1,0 +1,6 @@
+{
+  gh = {
+    enable = true;
+    extensions = [];
+  };
+}
