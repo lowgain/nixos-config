@@ -14,10 +14,10 @@ in
   ];
 
   # Enable home-manager for "lowgain" user
-  home-manager.users."lowgain" = {
-    imports = [ (self + /configurations/home/lowgain.nix) ];
-  };
-  home-manager.backupFileExtension = "backup";
+#  home-manager.users."lowgain@nixos-wsl" = {
+#    imports = [ (self + /configurations/home/lowgain.nix) ];
+#  };
+#  home-manager.backupFileExtension = "backup";
 
   services.openssh.enable = true;
   programs.ssh = {

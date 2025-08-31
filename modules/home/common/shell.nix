@@ -1,8 +1,5 @@
+{ pkgs, ... }:
 {
-  home.packages = with pkgs; {
-    
-  };
-
   home.shellAliases = {
     "cls" = "clear";
     ".." = "cd ..";

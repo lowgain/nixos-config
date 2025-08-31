@@ -14,9 +14,10 @@ in
       };
       home-manager.users.${config.me.username} = { };
       home-manager.sharedModules = [
-        self.homeModules.default
+        self.homeModules.common
       ];
     }
+    self.nixosModules.common
   ];
 
   # Enable the OpenSSH daemon.

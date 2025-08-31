@@ -1,5 +1,5 @@
 {
-  gh = {
+  programs.gh = {
     enable = true;
     extensions = [];
   };
