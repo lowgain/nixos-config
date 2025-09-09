@@ -1,6 +1,6 @@
 { flake, pkgs, ... }:
 
 {
-  environment.systemPackages = [ pkgs.arion pkgs.rcon ];
+  environment.systemPackages = [ pkgs.arion];
   networking.firewall.allowedTCPPorts = [ 25565 ];
 }
