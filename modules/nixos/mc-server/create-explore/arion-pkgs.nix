@@ -1,0 +1,1 @@
+import <nixpkgs> { system = builtins.currentSystem; }
