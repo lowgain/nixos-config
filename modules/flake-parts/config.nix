@@ -19,7 +19,7 @@ let
 in
 {
   imports = [
-    ../../config.nix
+    ../../me.nix
   ];
   options = {
     me = lib.mkOption {
