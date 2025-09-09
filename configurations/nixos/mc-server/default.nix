@@ -8,15 +8,16 @@ let
 in
 {
   imports = [
-    self.nixosModules.default
-    self.nixosModules.wsl
-    self.nixosModules.mc-server
+    self.nixosModules.common
     ./configuration.nix
   ];
 
-  services.openssh.enable = true;
-  programs.ssh = {
-    startAgent = true;
-    extraConfig = "addKeysToAgent = yes";
+  # Enable the OpenSSH daemon.
+  services.openssh = {
+    enable = true;
+    ports = [ 22 ];
+    settings = {
+      PermitRootLogin = "no";
+    };
   };
 }
