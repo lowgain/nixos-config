@@ -18,7 +18,10 @@
       # p = "pull --rebase";
       pu = "push";
     };
-    ignores = [ "*~" "*.swp" ];
+    ignores = [
+      "*~"
+      "*.swp"
+    ];
   };
 
   programs.lazygit = {
@@ -27,9 +30,15 @@
       # This looks better with the kitty theme.
       gui.theme = {
         lightTheme = false;
-        activeBorderColor = [ "white" "bold" ];
+        activeBorderColor = [
+          "white"
+          "bold"
+        ];
         inactiveBorderColor = [ "white" ];
-        selectedLineBgColor = [ "reverse" "white" ];
+        selectedLineBgColor = [
+          "reverse"
+          "white"
+        ];
       };
     };
   };

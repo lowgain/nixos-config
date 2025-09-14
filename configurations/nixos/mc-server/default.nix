@@ -9,7 +9,10 @@ in
 {
   imports = [
     self.nixosModules.common
+    inputs.disko.nixosModules.disko
     ./configuration.nix
+    ./hardware-configuration.nix
+    ./disk-config.nix
   ];
 
   # Enable the OpenSSH daemon.
@@ -17,7 +20,8 @@ in
     enable = true;
     ports = [ 22 ];
     settings = {
-      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+      #   PermitRootLogin = "no";
     };
   };
 }

@@ -18,7 +18,7 @@
 
     # Compression
     p7zip
-    unrar 
+    unrar
 
     # Networking
     traceroute
