@@ -10,6 +10,7 @@
     "la" = "eza -la";
     "grep" = "rg";
     "cd" = "z";
+    "cat" = "bat";
   };
 
   programs = {
@@ -32,7 +33,7 @@
         hostname = {
           ssh_only = false;
           ssh_symbol = "🌐 ";
-          format = "on [$hostname](bold red) ";
+          format = "@[$hostname](bold red) ";
           trim_at = ".local";
           disabled = false;
         };

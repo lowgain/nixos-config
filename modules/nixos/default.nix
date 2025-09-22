@@ -6,17 +6,14 @@ let
   inherit (inputs) self;
 in
 {
-  imports = [
-    {
-      users.users.${config.me.username} = {
-        isNormalUser = lib.mkDefault true;
-        extraGroups = lib.mkDefault [ "wheel" ];
-      };
-      home-manager.users.${config.me.username} = { };
-      home-manager.sharedModules = [
-        self.homeModules.common
-      ];
-    }
-    self.nixosModules.common
-  ];
+  imports = [ self.nixosModules.common ];
+
+  services.openssh = {
+    enable = lib.mkDefault true;
+    openFirewall = true;
+    settings = {
+      PermitRootLogin = "no";
+      # PasswordAuthentication = false;
+    };
+  };
 }

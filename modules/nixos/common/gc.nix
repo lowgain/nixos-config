@@ -2,7 +2,11 @@
   # Garbage collect the Nix store
   nix.gc = {
     automatic = true;
-    # Change how often the garbage collector runs (default: weekly)
     dates = "weekly";
+  };
+  # Optimise the nix store
+  nix.optimise = {
+    automatic = true;
+    dates = [ "weekly" ];
   };
 }

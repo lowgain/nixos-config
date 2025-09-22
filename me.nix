@@ -1,9 +1,7 @@
-# Configuration for this repo
-# see ./modules/flake/config.nix for module options
 {
   me = {
     username = "lowgain";
-    fullname = "logan thompson";
+    fullname = "Logan Thompson";
     email = "logan.t2020@tutanota.com";
   };
 }

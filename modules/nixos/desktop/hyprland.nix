@@ -1,14 +1,18 @@
-{ pkgs, ... }:
+{ flake, pkgs, ... }:
 
+let
+  inherit (flake) inputs;
+in
 {
   programs.hyprland = {
     enable = true;
-    withUWSM = true; # recommended for most users
     xwayland.enable = true; # Xwayland can be disabled.
+    withUWSM = true;
   };
 
   # Enable Display Manager
-  services.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.wayland = true;
 
   # Allow screensharing
   xdg.portal = {
@@ -18,4 +22,5 @@
 
   # Hint Electron apps to use Wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.systemPackages = [ pkgs.kitty ];
 }

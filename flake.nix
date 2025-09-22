@@ -10,6 +10,14 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixos-unified.url = "github:srid/nixos-unified";
+    nvf.url = "github:NotAShelf/nvf";
+    nvf.inputs.nixpkgs.follows = "nixpkgs";
+    stylix.url = "github:nix-community/stylix";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake/beta";
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixcord.url = "github:kaylorben/nixcord";
   };
 
   outputs =

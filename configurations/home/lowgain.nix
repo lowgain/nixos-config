@@ -1,11 +1,12 @@
 { flake, ... }:
 let
-  inherit (flake) inputs;
+  inherit (flake) config inputs;
   inherit (inputs) self;
 in
 {
   imports = [
-    self.homeModules.common
+    self.homeModules.default
+    self.homeModules.desktop
   ];
 
   home.username = "lowgain";

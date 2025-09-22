@@ -6,8 +6,9 @@
 
   programs.git = {
     enable = true;
-    userName = flake.config.me.fullname;
+    userName = flake.config.me.username;
     userEmail = flake.config.me.email;
+    extraConfig.safe.directory = "*";
     aliases = {
       co = "checkout";
       ci = "commit";

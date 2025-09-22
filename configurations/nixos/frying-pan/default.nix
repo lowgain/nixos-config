@@ -8,10 +8,9 @@ let
 in
 {
   imports = [
-    self.nixosModules.common
-    inputs.disko.nixosModules.disko
+    self.nixosModules.default
+    self.nixosModules.home
+    self.nixosModules.desktop
     ./configuration.nix
-    ./hardware-configuration.nix
-    ./disk-config.nix
   ];
 }
