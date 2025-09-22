@@ -11,12 +11,9 @@ in
     self.nixosModules.default
     self.nixosModules.home
     self.nixosModules.desktop
-    inputs.nixos-hardware.nixosModules.common-cpu-amd
-    inputs.nixos-hardware.nixosModules.common-cpu-amd-zenpower
-    inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
-    inputs.nixos-hardware.nixosModules.common-pc-laptop
-    inputs.nixos-hardware.nixosModules.common-pc-laptop-ssd
+    inputs.disko.nixosModules.disko
     ./configuration.nix
     ./hardware-configuration.nix
+    ./disk-config.nix
   ];
 }

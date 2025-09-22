@@ -12,7 +12,7 @@ in
     enable = lib.mkDefault true;
     openFirewall = true;
     settings = {
-      PermitRootLogin = "no";
+      # PermitRootLogin = "no";
       # PasswordAuthentication = false;
     };
   };

@@ -12,12 +12,12 @@ let
   inherit (flake) inputs;
 in
 {
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "frying-pan"; # Define your hostname.
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+  networking.hostName = "vm"; # Define your hostname.
 
   # Set your time zone.
   time.timeZone = "America/Nassau";
@@ -26,15 +26,12 @@ in
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
-    # keyMap = "us";
     useXkbConfig = true; # use xkb.options in tty.
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
-
-  # Choose what the lid switch does
-  services.logind.lidSwitch = "ignore";
+  users.users.root.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPAHj3ZmTXf8Am4SAyeqG97uGEL55eH4qLbABYOqjyMN"
+  ];
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
