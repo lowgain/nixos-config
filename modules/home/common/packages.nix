@@ -2,26 +2,21 @@
 {
   home.packages = with pkgs; [
     # Unixy tools
-    sd
     tree
-    tldr
+    tlrc
     wget
-    moreutils # ts, etc.
-    killall
 
-    # Terminal Utils
+    # Screensaver utils
     cmatrix
     cbonsai
-    neofetch
-    usbutils
-    pciutils
+    fastfetch
 
     # Compression
     p7zip
     unrar
 
     # Networking
-    traceroute
+    inetutils
     nmap
     speedtest-cli
   ];
@@ -34,7 +29,6 @@
     fzf.enable = true;
     btop.enable = true;
     htop.enable = true;
-    ranger.enable = true;
     eza.enable = true;
     ripgrep.enable = true;
     television.enable = true;

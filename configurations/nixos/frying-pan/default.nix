@@ -11,6 +11,7 @@ in
     self.nixosModules.default
     self.nixosModules.home
     self.nixosModules.desktop
+    self.homeModules.desktop
     inputs.nixos-hardware.nixosModules.common-cpu-amd
     inputs.nixos-hardware.nixosModules.common-cpu-amd-zenpower
     inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate

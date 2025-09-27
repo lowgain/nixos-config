@@ -3,19 +3,15 @@
 { flake, ... }:
 
 let
-  inherit (flake) inputs;
-  inherit (inputs) self;
+    inherit (flake) inputs;
+    inherit (inputs) self;
 in
 {
-  imports = [
-    self.nixosModules.default
-    self.nixosModules.wsl
-    ./configuration.nix
-  ];
-
-  services.openssh.enable = true;
-  programs.ssh = {
-    startAgent = true;
-    extraConfig = "addKeysToAgent = yes";
-  };
+    imports = [
+        self.nixosModules.default
+        self.nixosModules.home
+        self.nixosModules.wsl
+        self.nixosModules.mc-servers
+        ./configuration.nix
+    ];
 }

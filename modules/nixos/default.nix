@@ -2,18 +2,18 @@
 { flake, lib, ... }:
 
 let
-  inherit (flake) config inputs;
-  inherit (inputs) self;
+    inherit (flake) inputs;
+    inherit (inputs) self;
 in
-{
-  imports = [ self.nixosModules.common ];
+    {
+    imports = [ self.nixosModules.common ];
 
-  services.openssh = {
-    enable = lib.mkDefault true;
-    openFirewall = true;
-    settings = {
-      # PermitRootLogin = "no";
-      # PasswordAuthentication = false;
+    services.openssh = {
+        enable = lib.mkDefault true;
+        openFirewall = true;
+        # settings = {
+            # PermitRootLogin = "no";
+            # PasswordAuthentication = false;
+        # };
     };
-  };
 }

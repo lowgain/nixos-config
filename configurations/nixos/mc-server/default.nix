@@ -3,15 +3,16 @@
 { flake, ... }:
 
 let
-  inherit (flake) inputs;
-  inherit (inputs) self;
+    inherit (flake) inputs;
+    inherit (inputs) self;
 in
 {
-  imports = [
-    self.nixosModules.common
-    inputs.disko.nixosModules.disko
-    ./configuration.nix
-    ./hardware-configuration.nix
-    ./disk-config.nix
-  ];
+    imports = [
+        self.nixosModules.common
+        self.nixosModules.mc-servers
+        inputs.disko.nixosModules.disko
+        ./configuration.nix
+        ./hardware-configuration.nix
+        ./disk-config.nix
+    ];
 }

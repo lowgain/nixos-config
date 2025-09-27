@@ -1,4 +1,8 @@
-{ flake, lib, ... }:
+{
+  flake,
+  lib,
+  ...
+}:
 
 let
   inherit (flake) inputs;
@@ -14,8 +18,8 @@ in
         style = "light";
       };
       options = {
-        shiftwidth = 2;
-        tabstop = 2;
+        shiftwidth = 4;
+        tabstop = 4;
       };
       lsp.enable = true;
       languages = {
@@ -25,6 +29,8 @@ in
       statusline.lualine.enable = true;
       telescope.enable = true;
       autocomplete.nvim-cmp.enable = true;
+      ui.smartcolumn.enable = true;
+      ui.smartcolumn.setupOpts.colorcolumn = "80";
     };
   };
 }

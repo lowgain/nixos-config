@@ -30,6 +30,6 @@ in
     enableSSHSupport = true;
   };
 
-  # Enable MTR a ping traceroute tool
+  # Enable MTR a network tool
   programs.mtr.enable = true;
 }

@@ -6,8 +6,8 @@ in
 {
   imports = [
     self.homeModules.default
-    self.homeModules.desktop
   ];
 
   home.username = "lowgain";
+  home.stateVersion = "24.11";
 }

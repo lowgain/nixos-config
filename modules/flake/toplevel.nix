@@ -7,7 +7,11 @@
     inputs.nixos-unified.flakeModules.autoWire
   ];
   perSystem =
-    { self', pkgs, ... }:
+    {
+      self',
+      pkgs,
+      ...
+    }:
     {
       # For 'nix fmt'
       formatter = pkgs.nixfmt-tree;

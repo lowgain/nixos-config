@@ -1,7 +1,7 @@
 # Top-level configuration for everything in this repo.
 #
-# Values are set in 'config.nix' in repo root.
-{ lib, ... }:
+# Values are set in 'me.nix' in repo root.
+{ lib, system, ... }:
 let
   userSubmodule = lib.types.submodule {
     options = {

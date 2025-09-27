@@ -18,6 +18,7 @@
     zen-browser.inputs.nixpkgs.follows = "nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixcord.url = "github:kaylorben/nixcord";
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs =

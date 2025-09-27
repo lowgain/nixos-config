@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   home.shellAliases = {
-    "cls" = "clear";
     ".." = "cd ..";
     "..." = "cd ../..";
     "find" = "fd";
@@ -33,7 +32,7 @@
         hostname = {
           ssh_only = false;
           ssh_symbol = "🌐 ";
-          format = "@[$hostname](bold red) ";
+          format = "@ [$hostname](bold red) ";
           trim_at = ".local";
           disabled = false;
         };

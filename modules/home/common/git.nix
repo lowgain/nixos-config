@@ -9,16 +9,6 @@
     userName = flake.config.me.username;
     userEmail = flake.config.me.email;
     extraConfig.safe.directory = "*";
-    aliases = {
-      co = "checkout";
-      ci = "commit";
-      cia = "commit --amend";
-      s = "status";
-      st = "status";
-      b = "branch";
-      # p = "pull --rebase";
-      pu = "push";
-    };
     ignores = [
       "*~"
       "*.swp"
