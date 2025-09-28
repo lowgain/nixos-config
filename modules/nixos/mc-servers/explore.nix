@@ -3,7 +3,7 @@
 let
     modpack = pkgs.fetchPackwizModpack {
         url = "https://lowgain.github.io/explore-modpack/pack.toml";
-        packHash = "";
+        packHash = "sha256-z4V39o8vD/dfx5hBnK72vJf8PFHuXvUFt/8GYBI30Q8=";
     };
 in
 {
