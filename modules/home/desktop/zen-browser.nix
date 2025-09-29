@@ -11,72 +11,70 @@ in {
 
   programs.zen-browser = {
     enable = true;
-    profiles = {
-      default = {
-        isDefault = true;
-        search = {
-          default = "br";
-          engines = {
-            nix-packages = {
-              name = "Nix Packages";
-              urls = [
-                {
-                  template = "https://search.nixos.org/packages";
-                  params = [
-                    {
-                      name = "type";
-                      value = "packages";
-                    }
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
-              ];
+    profiles."default" = {
+      isDefault = true;
+      search = {
+        default = "br";
+        engines = {
+          nix-packages = {
+            name = "Nix Packages";
+            urls = [
+              {
+                template = "https://search.nixos.org/packages";
+                params = [
+                  {
+                    name = "type";
+                    value = "packages";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
 
-              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = ["@np"];
-            };
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            definedAliases = ["@np"];
+          };
 
-            nix-options = {
-              name = "Nix Options";
-              urls = [
-                {
-                  template = "https://search.nixos.org/options";
-                  params = [
-                    {
-                      name = "type";
-                      value = "options";
-                    }
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
-              ];
+          nix-options = {
+            name = "Nix Options";
+            urls = [
+              {
+                template = "https://search.nixos.org/options";
+                params = [
+                  {
+                    name = "type";
+                    value = "options";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
 
-              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = ["@no"];
-            };
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            definedAliases = ["@no"];
+          };
 
-            nixos-wiki = {
-              name = "NixOS Wiki";
-              urls = [{template = "https://wiki.nixos.org/w/index.php?search={searchTerms}";}];
-              iconMapObj."16" = "https://wiki.nixos.org/favicon.ico";
-              definedAliases = ["@nw"];
-            };
+          nixos-wiki = {
+            name = "NixOS Wiki";
+            urls = [{template = "https://wiki.nixos.org/w/index.php?search={searchTerms}";}];
+            iconMapObj."16" = "https://wiki.nixos.org/favicon.ico";
+            definedAliases = ["@nw"];
+          };
 
-            brave-search = {
-              name = "Brave Search";
-              urls = [{template = "https://search.brave.com/search?q={searchTerms}";}];
-              iconMapObj."16" = "https://brave.com/favicon.ico";
-              definedAliases = [
-                "@br"
-                "@brave"
-              ];
-            };
+          brave-search = {
+            name = "Brave Search";
+            urls = [{template = "https://search.brave.com/search?q={searchTerms}";}];
+            iconMapObj."16" = "https://brave.com/favicon.ico";
+            definedAliases = [
+              "@br"
+              "@brave"
+            ];
           };
         };
       };

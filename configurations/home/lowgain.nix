@@ -7,5 +7,4 @@ in {
   ];
 
   home.username = "lowgain";
-  home.stateVersion = "24.11";
 }
