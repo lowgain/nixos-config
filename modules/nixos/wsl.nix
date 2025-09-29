@@ -3,8 +3,7 @@
   pkgs,
   config,
   ...
-}:
-{
+}: {
   imports = [
     flake.inputs.nixos-wsl.nixosModules.default
   ];

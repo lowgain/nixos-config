@@ -1,12 +1,13 @@
-{ flake, pkgs, ... }:
-
-let
-  inherit (flake) inputs;
-in
 {
-  imports = [ inputs.zen-browser.homeModules.beta ];
+  flake,
+  pkgs,
+  ...
+}: let
+  inherit (flake) inputs;
+in {
+  imports = [inputs.zen-browser.homeModules.beta];
 
-  stylix.targets.zen-browser.profileNames = [ "default" ];
+  stylix.targets.zen-browser.profileNames = ["default"];
 
   programs.zen-browser = {
     enable = true;
@@ -35,7 +36,7 @@ in
               ];
 
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = [ "@np" ];
+              definedAliases = ["@np"];
             };
 
             nix-options = {
@@ -57,19 +58,19 @@ in
               ];
 
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = [ "@no" ];
+              definedAliases = ["@no"];
             };
 
             nixos-wiki = {
               name = "NixOS Wiki";
-              urls = [ { template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; } ];
+              urls = [{template = "https://wiki.nixos.org/w/index.php?search={searchTerms}";}];
               iconMapObj."16" = "https://wiki.nixos.org/favicon.ico";
-              definedAliases = [ "@nw" ];
+              definedAliases = ["@nw"];
             };
 
             brave-search = {
               name = "Brave Search";
-              urls = [ { template = "https://search.brave.com/search?q={searchTerms}"; } ];
+              urls = [{template = "https://search.brave.com/search?q={searchTerms}";}];
               iconMapObj."16" = "https://brave.com/favicon.ico";
               definedAliases = [
                 "@br"

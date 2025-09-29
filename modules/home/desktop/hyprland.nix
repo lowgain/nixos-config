@@ -1,9 +1,6 @@
-{ flake, ... }:
-
-let
+{flake, ...}: let
   inherit (flake) config;
-in
-{
+in {
   wayland.windowManager.hyprland = {
     enable = true; # enable Hyprland
     package = null;
@@ -82,7 +79,7 @@ in
           # vibrancy = 0.1696;
         };
       };
-      windowrulev2 = [ "suppressevent maximize, class:.*" ];
+      windowrulev2 = ["suppressevent maximize, class:.*"];
       workspace = [
         "1, persistent:true, defaultName:home, default:true"
         "2, persistent:true, defaultName:term"

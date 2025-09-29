@@ -1,8 +1,5 @@
-{ lib, ... }:
-
-{
-  imports =
-    with builtins;
+{lib, ...}: {
+  imports = with builtins;
     map (fn: ./${fn}) (filter (fn: fn != "default.nix") (attrNames (readDir ./.)));
 
   # Enable TPM2 module support

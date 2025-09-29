@@ -7,6 +7,6 @@
   # Optimise the nix store
   nix.optimise = {
     automatic = true;
-    dates = [ "weekly" ];
+    dates = ["weekly"];
   };
 }

@@ -1,8 +1,7 @@
 {
   inputs = {
-    # Principle inputs (updated by `nix run .#update`)
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
@@ -15,14 +14,13 @@
     stylix.url = "github:nix-community/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
     zen-browser.url = "github:0xc000022070/zen-browser-flake/beta";
-    zen-browser.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixcord.url = "github:kaylorben/nixcord";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
-  outputs =
-    inputs:
+  outputs = inputs:
     inputs.nixos-unified.lib.mkFlake {
       inherit inputs;
       root = ./.;

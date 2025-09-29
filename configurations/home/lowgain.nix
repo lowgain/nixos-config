@@ -1,9 +1,7 @@
-{ flake, ... }:
-let
+{flake, ...}: let
   inherit (flake) config inputs;
   inherit (inputs) self;
-in
-{
+in {
   imports = [
     self.homeModules.default
   ];

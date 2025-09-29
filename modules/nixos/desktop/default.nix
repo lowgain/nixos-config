@@ -1,11 +1,11 @@
-{ flake, pkgs, ... }:
-
-let
-  inherit (flake) config;
-in
 {
-  imports =
-    with builtins;
+  flake,
+  pkgs,
+  ...
+}: let
+  inherit (flake) config;
+in {
+  imports = with builtins;
     map (fn: ./${fn}) (filter (fn: fn != "default.nix") (attrNames (readDir ./.)));
 
   # Enable CUPS for printing
@@ -24,7 +24,7 @@ in
   # Enable yubikey support
   services.yubikey-agent.enable = true;
   programs.yubikey-touch-detector.enable = true;
-  services.udev.packages = [ pkgs.yubikey-personalization ];
+  services.udev.packages = [pkgs.yubikey-personalization];
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;

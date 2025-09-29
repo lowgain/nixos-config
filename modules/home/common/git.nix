@@ -1,5 +1,8 @@
-{ pkgs, flake, ... }:
 {
+  pkgs,
+  flake,
+  ...
+}: {
   home.packages = with pkgs; [
     git-filter-repo
   ];
@@ -25,7 +28,7 @@
           "white"
           "bold"
         ];
-        inactiveBorderColor = [ "white" ];
+        inactiveBorderColor = ["white"];
         selectedLineBgColor = [
           "reverse"
           "white"

@@ -1,10 +1,7 @@
-{ flake, ... }:
-
-let
+{flake, ...}: let
   inherit (flake) inputs;
-in
-{
-  imports = [ inputs.nvf.nixosModules.default ];
+in {
+  imports = [inputs.nvf.nixosModules.default];
   programs.nvf = {
     enable = true;
     settings = {

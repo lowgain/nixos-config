@@ -1,18 +1,19 @@
 # Configuration common to all Linux systems
-{ flake, lib, ... }:
+{
+  flake,
+  lib,
+  ...
+}: let
+  inherit (flake) inputs;
+  inherit (inputs) self;
+in {
+  imports = [self.nixosModules.common];
 
-let
-    inherit (flake) inputs;
-    inherit (inputs) self;
-in
-    {
-    imports = [ self.nixosModules.common ];
-
-    services.openssh = {
-        enable = lib.mkDefault true;
-        openFirewall = true;
-        settings = {
-            PasswordAuthentication = false;
-        };
+  services.openssh = {
+    enable = lib.mkDefault true;
+    openFirewall = true;
+    settings = {
+      PasswordAuthentication = false;
     };
+  };
 }
