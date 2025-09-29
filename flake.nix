@@ -18,6 +18,8 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixcord.url = "github:kaylorben/nixcord";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    jovian.url = "github:Jovian-Experiments/Jovian-NixOS?shallow=true";
+    jovian.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs:

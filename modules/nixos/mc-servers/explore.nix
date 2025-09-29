@@ -51,4 +51,7 @@ in {
       "config" = "${modpack}/config";
     };
   };
+
+  # Open port for Simple Voice Chat
+  networking.firewall.allowedUDPPorts = [24454];
 }

@@ -1,19 +1,10 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-{
-  flake,
-  pkgs,
-  ...
-}: let
-  inherit (flake) inputs;
-in {
-  # Use the systemd-boot EFI boot loader.
+{pkgs, ...}: {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "frying-pan"; # Define your hostname.
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+  networking.hostName = "htpc";
+  networking.networkmanager.enable = true;
+  hardware.bluetooth.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Nassau";
@@ -21,21 +12,24 @@ in {
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
-    font = "Lat2-Terminus16";
-    # keyMap = "us";
-    useXkbConfig = true; # use xkb.options in tty.
+    keyMap = "us";
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
+  users.users."lowgain" = {
+    initialPassword = "Lowgain";
+    isNormalUser = true;
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "users"
+    ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPAHj3ZmTXf8Am4SAyeqG97uGEL55eH4qLbABYOqjyMN"
+    ];
+  };
 
-  # Choose what the lid switch does
-  services.logind.lidSwitch = "ignore";
-
-  # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     wget
   ];
 
