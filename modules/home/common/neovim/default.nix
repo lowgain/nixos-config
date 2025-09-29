@@ -12,16 +12,17 @@
     settings.vim = {
       viAlias = true;
       vimAlias = true;
-
       preventJunkFiles = true;
-      useSystemClipboard = true;
+      clipboard.enable = true;
+      clipboard.providers.wl-copy.enable = true;
       spellcheck = {
         enable = true;
         languages = ["en"];
       };
 
       enableLuaLoader = true;
-      enableEditorconfig = true;
+      globals.editorconfig = true;
+      lsp.enable = true;
     };
   };
 }

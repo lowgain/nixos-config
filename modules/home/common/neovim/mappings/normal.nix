@@ -2,7 +2,7 @@
   programs.nvf.settings.vim.maps = {
     normal = {
       # General
-      "<leader>fd".action = ":lua vim.g.formatsave = not vim.g.formatsave<CR>";
+      "<leader>fs".action = ":lua vim.g.formatsave = not vim.g.formatsave<CR>";
       "<leader>zt".action = ":<C-U>let g:default_terminal = v:count1<CR>";
       "<leader>e".action = ":NvimTreeToggle<CR>";
       "<leader>ld".action = ":lua vim.diagnostic.setqflist({open = true})<CR>";
@@ -28,9 +28,12 @@
       "<leader>gw".action = "<cmd>Gitsigns toggle_word_diff<CR>";
 
       # Telescope
-      "<M-f>".action = ":Telescope resume<CR>";
+      "<leader>fr".action = ":Telescope resume<CR>";
       "<leader>fq".action = ":Telescope quickfix<CR>";
-      "<leader>f/".action = ":Telescope live_grep<cr>";
+      "<leader>fb".action = ":Telescope buffers<CR>";
+      "<leader>fg".action = ":Telescope live_grep<CR>";
+      "<leader>ff".action = ":Telescope find_files<CR>";
+      "<leader>fh".action = ":Telescope help_tags<CR>";
     };
   };
 }

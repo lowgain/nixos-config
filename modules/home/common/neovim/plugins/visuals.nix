@@ -1,8 +1,7 @@
 {
   programs.nvf.settings.vim.visuals = {
-    enable = true;
-    nvimWebDevicons.enable = true;
+    nvim-web-devicons.enable = true;
     highlight-undo.enable = true;
-    indentBlankline.enable = true;
+    indent-blankline.enable = true;
   };
 }

@@ -1,6 +1,5 @@
 {
   programs.nvf.settings.vim.languages = {
-    enableLSP = true;
     enableFormat = true;
     enableTreesitter = true;
     enableExtraDiagnostics = true;
@@ -15,6 +14,5 @@
     bash.enable = true;
     sql.enable = true;
     lua.enable = true;
-    lua.lsp.neodev.enable = true;
   };
 }
