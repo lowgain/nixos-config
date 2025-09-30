@@ -13,8 +13,6 @@
     nvf.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:nix-community/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
-    zen-browser.url = "github:0xc000022070/zen-browser-flake/beta";
-    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixcord.url = "github:kaylorben/nixcord";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
