@@ -2,10 +2,8 @@
   flake,
   pkgs,
   ...
-}: let
-  inherit (flake) inputs;
-in {
-  imports = [inputs.nixcord.homeModules.nixcord];
+}: {
+  imports = [flake.inputs.nixcord.homeModules.nixcord];
 
   home.packages = with pkgs; [
     nautilus

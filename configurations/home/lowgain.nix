@@ -1,5 +1,5 @@
 {flake, ...}: let
-  inherit (flake) config inputs;
+  inherit (flake) inputs;
   inherit (inputs) self;
 in {
   imports = [
