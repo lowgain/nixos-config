@@ -15,6 +15,8 @@
     bash = {
       enable = true;
       enableCompletion = true;
+      undistractMe.enable = true;
+      undistractMe.playSound = true;
     };
 
     # Better shell prompt!

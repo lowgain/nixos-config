@@ -20,6 +20,7 @@
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     jovian.url = "github:Jovian-Experiments/Jovian-NixOS?shallow=true";
     jovian.inputs.nixpkgs.follows = "nixpkgs";
+    devenv.url = "github:cachix/devenv";
   };
 
   outputs = inputs:
