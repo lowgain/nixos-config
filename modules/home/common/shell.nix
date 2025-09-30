@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   home.shellAliases = {
     ".." = "cd ..";
     "..." = "cd ../..";
@@ -17,6 +17,10 @@
       enableCompletion = true;
       undistractMe.enable = true;
       undistractMe.playSound = true;
+      shellInit = ''
+        eval $(ssh-agent -s)
+        ssh-add
+      '';
     };
 
     # Better shell prompt!
