@@ -4,6 +4,7 @@
   ...
 }: {
   flake.nixosModules.niri = {pkgs, ...}: {
+    environment.systemPackages = [ pkgs.bibata-cursors ];
     programs.niri = {
       enable = true;
       package = self.packages.${pkgs.stdenv.hostPlatform.system}.myNiri;
@@ -27,10 +28,10 @@
 
         prefer-no-csd = _: {};
 
-        # cursor = {
-        #     xcursor-theme = pkgs.bibata-cursors;
-        #     xcursor-size = 48;
-        # };
+        cursor = {
+            xcursor-theme = "Bibata-Modern-Amber";
+            xcursor-size = 24;
+        };
 
         input = {
           focus-follows-mouse = _: {};

@@ -4,7 +4,7 @@
       enable = true;
       settings = {
         main = {
-          font = "monospace:size=14";
+          font = "FiraCode Nerd Font:size=14";
           pad = "10x10";
         };
         colors-dark = {

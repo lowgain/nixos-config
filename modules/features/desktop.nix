@@ -4,7 +4,6 @@
       self.nixosModules.niri
       self.nixosModules.audio
       self.nixosModules.browsers
-      self.nixosModules.stylix
       self.nixosModules.terminal
       self.nixosModules.development
     ];
