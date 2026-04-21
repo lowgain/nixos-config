@@ -4,7 +4,7 @@
   ...
 }: {
   flake.nixosModules.niri = {pkgs, ...}: {
-    environment.systemPackages = [ pkgs.bibata-cursors ];
+    environment.systemPackages = [pkgs.bibata-cursors];
     programs.niri = {
       enable = true;
       package = self.packages.${pkgs.stdenv.hostPlatform.system}.myNiri;
@@ -29,8 +29,8 @@
         prefer-no-csd = _: {};
 
         cursor = {
-            xcursor-theme = "Bibata-Modern-Amber";
-            xcursor-size = 24;
+          xcursor-theme = "Bibata-Modern-Amber";
+          xcursor-size = 24;
         };
 
         input = {
@@ -87,6 +87,7 @@
           "XF86AudioRaiseVolume".spawn-sh = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+";
           "XF86AudioLowerVolume".spawn-sh = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-";
           "XF86AudioMute".spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+          "XF86AudioPlay".spawn-sh = "playerctl play-pause";
 
           "Mod+Ctrl+H".set-column-width = "-5%";
           "Mod+Ctrl+L".set-column-width = "+5%";
