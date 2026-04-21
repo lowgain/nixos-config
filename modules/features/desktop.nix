@@ -95,17 +95,19 @@
         nssmdns4 = true;
         openFirewall = true;
       };
+
+      playerctld.enable = true;
     };
 
     # Scanners
     # Note: User requires "scanner" and "lp" groups
     hardware.sane = {
-        enable = true;
-        extraBackends = with pkgs; [
-            sane-airscan
-            hplipWithPlugin
-        ];
-        openFirewall = true;
+      enable = true;
+      extraBackends = with pkgs; [
+        sane-airscan
+        hplipWithPlugin
+      ];
+      openFirewall = true;
     };
   };
 }
