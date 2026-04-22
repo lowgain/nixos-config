@@ -4,7 +4,10 @@
   ...
 }: {
   flake.nixosModules.niri = {pkgs, ...}: {
-    environment.systemPackages = [pkgs.bibata-cursors];
+    environment.systemPackages = with pkgs; [
+      bibata-cursors
+      jamesdsp
+    ];
     programs.niri = {
       enable = true;
       package = self.packages.${pkgs.stdenv.hostPlatform.system}.myNiri;
@@ -83,11 +86,21 @@
           "Mod+Shift+4".move-column-to-workspace = "4";
 
           "Mod+Space".spawn-sh = "${noctaliaExe} ipc call launcher toggle";
+          "Mod+S".spawn-sh = "${noctaliaExe} ipc call controlCenter toggle";
+          "Mod+Comma".spawn-sh = "${noctaliaExe} ipc call settings toggle";
+          "Mod+Period".spawn = ["${noctaliaExe}" "ipc" "call" "lockScreen" "lock"];
+          "Ctrl+Alt+Escape".spawn-sh = "${noctaliaExe} ipc call systemMonitor toggle";
 
-          "XF86AudioRaiseVolume".spawn-sh = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+";
-          "XF86AudioLowerVolume".spawn-sh = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-";
-          "XF86AudioMute".spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-          "XF86AudioPlay".spawn-sh = "playerctl play-pause";
+          "XF86AudioRaiseVolume".spawn = ["${noctaliaExe}" "ipc" "call" "volume" "increase"];
+          "XF86AudioLowerVolume".spawn = ["${noctaliaExe}" "ipc" "call" "volume" "decrease"];
+          "XF86AudioMute".spawn = ["${noctaliaExe}" "ipc" "call" "volume" "muteOutput"];
+          "XF86AudioPlay".spawn = ["${noctaliaExe}" "ipc" "call" "media" "play"];
+          "XF86AudioPause".spawn = ["${noctaliaExe}" "ipc" "call" "media" "pause"];
+          "XF86AudioNext".spawn = ["${noctaliaExe}" "ipc" "call" "media" "next"];
+          "XF86AudioPrev".spawn = ["${noctaliaExe}" "ipc" "call" "media" "previous"];
+
+          "XF86MonBrightnessUp".spawn = ["${noctaliaExe}" "ipc" "call" "brightness" "increase"];
+          "XF86MonBrightnessDown".spawn = ["${noctaliaExe}" "ipc" "call" "brightness" "decrease"];
 
           "Mod+Ctrl+H".set-column-width = "-5%";
           "Mod+Ctrl+L".set-column-width = "+5%";
@@ -102,7 +115,7 @@
 
         layout = {
           gaps = 10;
-          background-color = self.theme.dark;
+          background-color = "transparent";
           focus-ring = {
             width = 2;
             active-color = self.theme.brightOrange;
@@ -133,6 +146,22 @@
             clip-to-geometry = true;
           }
         ];
+
+        layer-rules = [
+          {
+            matches = [
+              {
+                namespace = "^noctalia-wallpaper*";
+              }
+            ];
+            place-within-backdrop = true;
+          }
+        ];
+
+        debug = {
+          # Allows notification actions and window activation from Noctalia.
+          honor-xdg-activation-with-invalid-serial = _: {};
+        };
       };
     };
   };

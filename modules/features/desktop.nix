@@ -31,6 +31,7 @@
       libqalculate
       lf
       naps2
+      hledger
     ];
 
     # Extra font packages
@@ -96,7 +97,7 @@
         openFirewall = true;
       };
 
-      playerctld.enable = true;
+      power-profiles-daemon.enable = true;
     };
 
     # Scanners
