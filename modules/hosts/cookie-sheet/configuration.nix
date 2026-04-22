@@ -20,7 +20,7 @@
 
     # Use the systemd-boot EFI boot loader.
     boot = {
-      kernelPackages = pkgs.linuxKernel.kernels.linux_zen;
+      kernelPackages = pkgs.linuxKernel.packages.linux_zen;
       kernelParams = ["quiet" "loglevel=3"];
 
       loader.systemd-boot = {

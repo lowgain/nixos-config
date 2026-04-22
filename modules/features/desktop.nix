@@ -30,8 +30,9 @@
       ffmpeg-full
       libqalculate
       lf
-      naps2
+      kdePackages.skanpage
       hledger
+      jamesdsp
     ];
 
     # Extra font packages
