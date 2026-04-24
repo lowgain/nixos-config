@@ -77,6 +77,7 @@
     services.upower.enable = true;
     powerManagement.powertop.enable = true;
     services.thermald.enable = true;
+    hardware.i2c.enable = true;
 
     # This option defines the first version of NixOS you have installed on this particular machine,
     # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
