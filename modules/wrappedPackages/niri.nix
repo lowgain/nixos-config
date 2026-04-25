@@ -158,6 +158,12 @@
           }
         ];
 
+        # outputs = {
+        #   "eDP-1" = {
+        #     mode = "1920x1080@60.007999";
+        #   };
+        # };
+
         debug = {
           # Allows notification actions and window activation from Noctalia.
           honor-xdg-activation-with-invalid-serial = _: {};

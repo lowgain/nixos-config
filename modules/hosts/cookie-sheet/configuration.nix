@@ -9,32 +9,34 @@
 
   flake.nixosModules.cookieSheetfig = {pkgs, ...}: {
     imports = [
+      inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
+      inputs.nixos-hardware.nixosModules.common-gpu-amd
+      inputs.nixos-hardware.nixosModules.common-pc
+      inputs.nixos-hardware.nixosModules.common-pc-ssd
+      inputs.nixos-hardware.nixosModules.common-pc-laptop
       self.nixosModules.cookieSheetware
       self.nixosModules.nix
       self.nixosModules.desktop
       self.nixosModules.shell
-
-      # inputs.disko.flakeModules.default
-      # self.diskoConfigurations.cookieSheet
     ];
 
-    # Use the systemd-boot EFI boot loader.
     boot = {
       kernelPackages = pkgs.linuxKernel.packages.linux_zen;
       kernelParams = ["quiet" "loglevel=3"];
+      blacklistedKernelModules = ["i2c_smbus" "i2c_piix4"]; # Makes startup errors
 
       loader.systemd-boot = {
         enable = true;
         memtest86.enable = true;
+        configurationLimit = 10;
       };
       loader.efi.canTouchEfiVariables = true;
     };
 
-    networking.hostName = "cookie-sheet"; # Define your hostname.
-
-    # Enable Wifi
-    # Configure network connections interactively with nmcli or nmtui.
-    networking.networkmanager.enable = true;
+    networking = {
+      hostName = "cookie-sheet";
+      networkmanager.enable = true;
+    };
 
     hardware.bluetooth = {
       enable = true;
@@ -43,19 +45,27 @@
 
     time.timeZone = "America/Nassau";
 
-    # Enable touchpad support
     services.libinput.enable = true;
 
-    # SHTF Packages
     environment.systemPackages = with pkgs; [
       vim
       wget
     ];
 
+    services.logind.settings.Login = {
+      HandleLidSwitch = "suspend";
+      HandleLidSwitchExternalPower = "ignore";
+      HandleLidSwitchDocked = "ignore";
+      HandlePowerKey = "ignore";
+      HandlePowerKeyLongPress = "poweroff";
+      HandleSuspendKey = "ignore";
+      HandleSuspendKeyLongPress = "suspend";
+    };
+
     programs.ssh = {
-      # startAgent = true;
       extraConfig = ''
         AddKeysToAgent yes
+        IdentityFile ~/.ssh/id_ed25519
       '';
     };
 
@@ -65,19 +75,16 @@
     };
 
     # Autologin dispay manager to avoid double login
-    # services.displayManager.autoLogin.enable = true;
-    # services.displayManager.autoLogin.user = "${self.name}";
+    # services.displayManager.autoLogin = {
+    #   enable = true;
+    #   user = "${self.name}";
+    # };
 
-    hardware = {
-      cpu.amd.updateMicrocode = true;
-      enableAllFirmware = true;
-      enableAllHardware = true;
-    };
+    services.thermald.enable = true;
 
     services.upower.enable = true;
+
     powerManagement.powertop.enable = true;
-    services.thermald.enable = true;
-    hardware.i2c.enable = true;
 
     # This option defines the first version of NixOS you have installed on this particular machine,
     # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

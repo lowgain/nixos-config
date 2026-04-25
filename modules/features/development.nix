@@ -18,5 +18,10 @@
       enable = true;
       silent = true;
     };
+
+    programs.tmux = {
+      enable = true;
+      keyMode = "vi";
+    };
   };
 }

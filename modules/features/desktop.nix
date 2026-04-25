@@ -33,6 +33,9 @@
       kdePackages.skanpage
       hledger
       jamesdsp
+      onlyoffice-desktopeditors
+      gimp
+      grim
     ];
 
     # Extra font packages
