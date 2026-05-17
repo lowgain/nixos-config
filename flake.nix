@@ -6,13 +6,16 @@
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stylix.url = "github:nix-community/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
     zen-browser.url = "github:youwen5/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
-
-    devshell.url = "github:numtide/devshell";
   };
 
   outputs = inputs:

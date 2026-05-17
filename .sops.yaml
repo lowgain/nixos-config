@@ -1,0 +1,14 @@
+keys:
+  - &admin_lowgain age1r6fvj85dwkcxpr8769ed8c9ejejymw6q5c937y2aque2qqzvsgvsd0rxeq
+  - &server_cookie_sheet age1nltp2gd22993m8ps3p9772ltjysn0qht7rlyh42e454qnxsugp0shkahtc
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+    - age:
+      - *admin_lowgain
+      - *server_cookie_sheet
+  - path_regex: secrets/cookie_sheet/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+    - age:
+      - *admin_lowgain
+      - *server_cookie_sheet

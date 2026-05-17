@@ -4,7 +4,8 @@
     nix = {
       settings = {
         experimental-features = ["nix-command" "flakes"];
-        stalled-download-timeout = 1000;
+        stalled-download-timeout = 60000;
+        connect-timeout = 60000;
       };
       optimise = {
         automatic = true;

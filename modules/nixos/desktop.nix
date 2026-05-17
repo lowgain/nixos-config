@@ -65,9 +65,17 @@
     xdg.portal = {
       enable = true;
       wlr.enable = true;
-      extraPortals = with pkgs; [xdg-desktop-portal-gtk];
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-gnome
+        gnome-keyring
+      ];
     };
-    security.polkit.enable = true;
+    security = {
+      polkit = {
+        enable = true;
+      };
+    };
 
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
