@@ -15,6 +15,7 @@
     imports = [
       inputs.nixos-wsl.nixosModules.default
       self.nixosModules.nix
+      self.nixosModules.headless
       self.nixosModules.stylix
       self.nixosModules.myHomeManager
       self.nixosModules.lowgainModule
@@ -23,11 +24,6 @@
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
     time.timeZone = "America/Nassau";
-
-    environment.systemPackages = with pkgs; [
-      wget
-      vim
-    ];
 
     wsl = {
       enable = true;

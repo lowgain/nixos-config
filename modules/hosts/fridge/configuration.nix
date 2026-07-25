@@ -14,9 +14,7 @@
   }: {
     imports = [
       self.nixosModules.fridgeHardware
-      self.nixosModules.nix
-      self.nixosModules.stylix
-      self.nixosModules.niri
+      self.nixosModules.desktop
       self.nixosModules.myHomeManager
       self.nixosModules.lowgainModule
     ];

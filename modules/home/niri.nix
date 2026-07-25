@@ -34,6 +34,7 @@
           "Mod+Space".action.spawn = ["noctalia" "msg" "panel-toggle" "launcher"];
           "Mod+S".action.spawn = ["noctalia" "msg" "panel-toggle" "control-center"];
           "Mod+Comma".action.spawn = ["noctalia" "msg" "settings-toggle"];
+          "Mod+Return".action.spawn = ["foot"];
           "Alt+Tab".action.spawn = ["noctalia" "msg" "window-switcher"];
           "XF86AudioRaiseVolume".action.spawn = ["noctalia" "msg" "volume-up"];
           "XF86AudioLowerVolume".action.spawn = ["noctalia" "msg" "volume-down"];
