@@ -6,7 +6,7 @@
   flake.nixosConfigurations.wsl = inputs.nixpkgs.lib.nixosSystem {
     modules = [
       self.nixosModules.wslModule
-      self.nixosModules.myHomeManager
+      self.nixosModules.lowgainModule
       self.nixosModules.stylix
       inputs.nixos-wsl.nixosModules.default
     ];
@@ -24,12 +24,6 @@
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
     time.timeZone = "America/Nassau";
-
-    users.users.lowgain = {
-      isNormalUser = true;
-      extraGroups = ["wheel"];
-    };
-    home-manager.users.lowgain = self.homeModules.lowgainModule;
 
     environment.systemPackages = with pkgs; [
       wget

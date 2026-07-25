@@ -3,6 +3,18 @@
   inputs,
   ...
 }: {
+  # Nixos user configuration
+  flake.nixosModules.lowgainModule = {
+    imports = [ self.nixosModules.myHomeManager ];
+    users.users.lowgain = {
+      isNormalUser = true;
+      extraGroups = [ "wheel" "networkmanager" ];
+      home = "/home/lowgain";
+      initialPassword = "Lowgain";
+    };
+    home-manager.users.lowgain = self.homeModules.lowgainModule;
+  };
+
   # This is your standalone home-manager configuration, meant to be used on non-nixos machines
   # with the home-manager command
   flake.homeConfigurations.lowgain = inputs.home-manager.lib.homeManagerConfiguration {
