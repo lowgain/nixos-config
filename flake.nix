@@ -13,11 +13,17 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    niri.url = "github:sodiboo/niri-flake";
+
+    noctalia.url = "github:noctalia-dev/noctalia";
+
+    noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
   };
 
   outputs = inputs:

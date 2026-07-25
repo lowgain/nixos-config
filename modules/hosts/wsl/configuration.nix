@@ -4,12 +4,7 @@
   ...
 }: {
   flake.nixosConfigurations.wsl = inputs.nixpkgs.lib.nixosSystem {
-    modules = [
-      self.nixosModules.wslModule
-      self.nixosModules.lowgainModule
-      self.nixosModules.stylix
-      inputs.nixos-wsl.nixosModules.default
-    ];
+    modules = [self.nixosModules.wslModule];
   };
 
   flake.nixosModules.wslModule = {
@@ -18,7 +13,11 @@
     ...
   }: {
     imports = [
+      inputs.nixos-wsl.nixosModules.default
       self.nixosModules.nix
+      self.nixosModules.stylix
+      self.nixosModules.myHomeManager
+      self.nixosModules.lowgainModule
     ];
 
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
@@ -27,9 +26,6 @@
 
     environment.systemPackages = with pkgs; [
       wget
-      curl
-      tree
-      btop
       vim
     ];
 
@@ -40,6 +36,13 @@
       usbip.enable = true;
       useWindowsDriver = true;
       ssh-agent.enable = true;
+    };
+
+    home-manager = {
+      sharedModules = [
+        self.homeModules.shell
+      ];
+      users.lowgain = self.homeModules.lowgainModule;
     };
 
     # This value determines the NixOS release from which the default

@@ -9,7 +9,11 @@
     ];
   };
 
-  flake.nixosModules.htpcModule = {config, pkgs, ...}: {
+  flake.nixosModules.htpcModule = {
+    config,
+    pkgs,
+    ...
+  }: {
     imports = [
       self.nixosModules.htpcHardware
       self.nixosModules.nix
@@ -23,6 +27,7 @@
         powerOnBoot = true;
       };
       xone.enable = true;
+      graphics.extraPackages = [pkgs.intel-media-sdk];
     };
 
     security = {
@@ -38,7 +43,7 @@
     };
 
     boot = {
-      kernelParams = [ "quiet" ];
+      kernelParams = ["quiet"];
       consoleLogLevel = 0;
       initrd.verbose = false;
       loader = {
@@ -57,9 +62,15 @@
       networkmanager.enable = true;
     };
 
-    users.users.htpc = {
-      isNormalUser = true;
-      extraGroups = ["wheel" "networkmanager"];
+    users = {
+      users.admin = {
+        isNormalUser = true;
+        extraGroups = ["wheel" "networkmanager"];
+        openssh.authorizedKeys.keys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMjw3UlPY0SebTuJ2/tDl1IMcOeJP7pBdGU29IVRbfyB logan.t2020@tutanota.com"
+        ];
+      };
+      extraUsers.kodi.isSystemUser = true;
     };
 
     environment.systemPackages = with pkgs; [
@@ -68,7 +79,6 @@
     ];
 
     services = {
-
       pipewire = {
         enable = true;
         alsa.enable = true;
@@ -83,18 +93,17 @@
 
       cage = {
         enable = true;
-        user = "htpc";
-        program = "${(pkgs.kodi-wayland.withPackages (kodiPkgs: with kodiPkgs; [
-          joystick
-          youtube
-          sponsorblock
-        ]))}/bin/kodi-standalone";
+        user = "kodi";
+        program = "${(pkgs.kodi-wayland.withPackages (kodiPkgs:
+          with kodiPkgs; [
+            joystick
+            youtube
+            sponsorblock
+          ]))}/bin/kodi-standalone";
       };
 
       qbittorrent = {
         enable = true;
-        user = "htpc";
-        group = "users";
         openFirewall = true;
         webuiPort = 8081;
         serverConfig = {
@@ -108,11 +117,7 @@
             };
           };
           Preferences = {
-            General = {
-              Locale = "en";
-              StatusbarExternalIPDisplayed = true;
-              StatusbarFreeDiskSpaceDisplayed = true;
-            };
+            General.Locale = "en";
             Search.SearchEnabled = true;
             WebUI = {
               AlternativeUIEnabled = true;
@@ -123,9 +128,7 @@
               Password_PBKDF2 = "qx5uY4bYgyOqlHWiuWPRCw==:j+g6ZaRv4Tf37KUwU1VMbTQlxAsginw9NUeM37f5So+y/SUTjLogk4uL+uflXu/uoO6xDEm25nHydmBCdQvOUA==";
             };
           };
-          IPSubnetWhitelistOptionsDialog = {
-            Size = "@Size(360 450)";
-          };
+          IPSubnetWhitelistOptionsDialog.Size = "@Size(360 450)";
           AddNewTorrentDialog = {
             RememberLastSavePath = true;
             SavePathHistory = "/home/htpc/Downloads";
