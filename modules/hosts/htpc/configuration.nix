@@ -15,6 +15,7 @@
     imports = [
       self.nixosModules.htpcHardware
       self.nixosModules.headless
+      self.nixosModules.avahi
     ];
 
     hardware = {

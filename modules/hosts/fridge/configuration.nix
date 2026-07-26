@@ -17,6 +17,7 @@
       self.nixosModules.desktop
       self.nixosModules.myHomeManager
       self.nixosModules.lowgainModule
+      self.nixosModules.avahi
     ];
 
     hardware = {
