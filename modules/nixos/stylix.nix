@@ -1,9 +1,4 @@
-{
-  self,
-  inputs,
-  config,
-  ...
-}: {
+{inputs, ...}: {
   flake.nixosModules.stylix = {pkgs, ...}: {
     imports = [
       inputs.stylix.nixosModules.stylix

@@ -1,9 +1,5 @@
-{
-  self,
-  inputs,
-  ...
-}: {
-  flake.homeModules.noctalia = {pkgs, ...}: {
+{inputs, ...}: {
+  flake.homeModules.noctalia = {
     imports = [inputs.noctalia.homeModules.default];
     programs.noctalia = {
       enable = true;

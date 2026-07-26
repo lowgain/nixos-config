@@ -4,14 +4,10 @@
   ...
 }: {
   flake.nixosConfigurations.htpc = inputs.nixpkgs.lib.nixosSystem {
-    modules = [ self.nixosModules.htpcModule ];
+    modules = [self.nixosModules.htpcModule];
   };
 
-  flake.nixosModules.htpcModule = {
-    config,
-    pkgs,
-    ...
-  }: {
+  flake.nixosModules.htpcModule = {pkgs, ...}: {
     imports = [
       self.nixosModules.htpcHardware
       self.nixosModules.headless
@@ -39,7 +35,6 @@
             profile "a2dp"
             interface "hci0"
             device "F8:5C:7E:1F:97:2A"
-            codec "sbc"
           }
           pcm.!default {
             type plug

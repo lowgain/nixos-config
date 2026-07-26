@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.niri = {pkgs, ...}: {
+  flake.nixosModules.niri = {
     imports = [
       inputs.niri.nixosModules.niri
       self.nixosModules.noctalia

@@ -7,11 +7,7 @@
     modules = [self.nixosModules.wslModule];
   };
 
-  flake.nixosModules.wslModule = {
-    pkgs,
-    lib,
-    ...
-  }: {
+  flake.nixosModules.wslModule = {lib, ...}: {
     imports = [
       inputs.nixos-wsl.nixosModules.default
       self.nixosModules.nix

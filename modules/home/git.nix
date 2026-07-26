@@ -1,9 +1,5 @@
 {
-  self,
-  inputs,
-  ...
-}: {
-  flake.homeModules.git = {pkgs, ...}: {
+  flake.homeModules.git = {
     programs.git = {
       enable = true;
       lfs.enable = true;

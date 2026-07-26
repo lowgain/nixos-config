@@ -1,8 +1,4 @@
 {
-  self,
-  inputs,
-  ...
-}: {
   flake.nixosModules.lowgainModule = {
     users.users.lowgain = {
       isNormalUser = true;

@@ -7,11 +7,7 @@
     modules = [self.nixosModules.fridgeModule];
   };
 
-  flake.nixosModules.fridgeModule = {
-    pkgs,
-    config,
-    ...
-  }: {
+  flake.nixosModules.fridgeModule = {pkgs, ...}: {
     imports = [
       self.nixosModules.fridgeHardware
       self.nixosModules.desktop

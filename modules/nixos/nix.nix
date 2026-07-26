@@ -1,5 +1,5 @@
-{self, ...}: {
-  flake.nixosModules.nix = {pkgs, ...}: {
+{
+  flake.nixosModules.nix = {
     nixpkgs.config.allowUnfree = true;
 
     nix = {

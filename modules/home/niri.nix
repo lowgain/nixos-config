@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.niri = {pkgs, ...}: {
+  flake.homeModules.niri = {
     imports = [
       inputs.niri.homeModules.niri
       self.homeModules.noctalia
