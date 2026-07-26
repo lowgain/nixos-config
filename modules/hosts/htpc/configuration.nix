@@ -68,7 +68,7 @@
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMjw3UlPY0SebTuJ2/tDl1IMcOeJP7pBdGU29IVRbfyB logan.t2020@tutanota.com"
         ];
       };
-      extraUsers.kodi.isSystemUser = true;
+      extraUsers.kodi.isNormalUser = true;
     };
 
     services = {
