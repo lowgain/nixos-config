@@ -21,15 +21,44 @@
     hardware = {
       cpu.intel.updateMicrocode = true;
       enableRedistributableFirmware = true;
-      bluetooth = {
-        enable = true;
-        powerOnBoot = true;
-      };
       xone.enable = true;
       graphics.extraPackages = with pkgs; [
         intel-media-driver
         intel-vaapi-driver
       ];
+      bluetooth = {
+        enable = true;
+        powerOnBoot = true;
+      };
+      alsa = {
+        enable = true;
+        enableBluetooth = true;
+        plugins = [pkgs.bluez-alsa];
+        config = ''
+          default.bluealsa {
+            profile "a2dp"
+            interface "hci0"
+            device "F8:5C:7E:1F:97:2A"
+            codec "sbc"
+          }
+          pcm.!default {
+            type plug
+            slave.pcm {
+              type bluealsa
+              device "F8:5C:7E:1F:97:2A"
+              profile "a2dp"
+            }
+            hint {
+              show on
+              description "Logans Charge 5"
+            }
+          }
+          ctl.!default {
+            type bluealsa
+            device "F8:5C:7E:1F:97:2A"
+          }
+        '';
+      };
     };
 
     security = {
@@ -72,16 +101,13 @@
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMjw3UlPY0SebTuJ2/tDl1IMcOeJP7pBdGU29IVRbfyB logan.t2020@tutanota.com"
         ];
       };
-      extraUsers.kodi.isNormalUser = true;
+      extraUsers.kodi = {
+        isNormalUser = true;
+        extraGroups = ["audio" "bluetooth"];
+      };
     };
 
     services = {
-      pipewire = {
-        enable = true;
-        alsa.enable = true;
-        alsa.support32Bit = true;
-      };
-
       xserver.xkb.layout = "us";
 
       libinput.enable = true;
@@ -96,6 +122,10 @@
             joystick
             youtube
             sponsorblock
+            bluetooth-manager
+            somafm
+            trakt
+            upnext
           ]))}/bin/kodi-standalone";
       };
 
