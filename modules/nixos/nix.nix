@@ -11,11 +11,14 @@
         automatic = true;
         dates = "weekly";
       };
-      gc = {
-        automatic = true;
-        dates = "weekly";
-        options = "--delete-older-than 7d";
-        randomizedDelaySec = "10min";
+    };
+
+    programs.nh = {
+      enable = true;
+      flake = "/home/user/lowgain/nixos-config";
+      clean = {
+        enable = true;
+        extraArgs = "--keep-since 7d --keep 3";
       };
     };
   };

@@ -20,23 +20,21 @@
     ];
 
     hardware = {
-      cpu.amd.updateMicrocode = true;
+      # cpu.amd.updateMicrocode = true;
 
-      enableRedistributableFirmware = true;
+      # nvidia = {
+      #   package = config.boot.kernelPackages.nvidiaPackages.stable;
+      #   modesetting.enable = true;
+      #   open = true;
+      #   nvidiaSettings = true;
+      # };
 
-      nvidia = {
-        package = config.boot.kernelPackages.nvidiaPackages.stable;
-        modesetting.enable = true;
-        open = true;
-        nvidiaSettings = true;
-      };
+      # bluetooth = {
+      #   enable = true;
+      #   powerOnBoot = true;
+      # };
 
-      bluetooth = {
-        enable = true;
-        powerOnBoot = true;
-      };
-
-      xone.enable = true;
+      # xone.enable = true;
 
       graphics = {
         enable = true;
@@ -52,7 +50,7 @@
     };
 
     boot = {
-      kernelParams = ["amd_pstate=active" "quiet" "nvidia-drm.modeset=1"];
+      # kernelParams = ["amd_pstate=active" "quiet" "nvidia-drm.modeset=1"];
       loader = {
         systemd-boot = {
           enable = true;
@@ -76,8 +74,8 @@
     environment.systemPackages = with pkgs; [
       wget
       vim
-      heroic
-      mangohud
+      # heroic
+      # mangohud
     ];
 
     home-manager = {
@@ -88,18 +86,20 @@
       users.lowgain = self.homeModules.lowgainModule;
     };
 
-    services = {
-      xserver.videoDrivers = ["nvidia"];
-    };
+    # services = {
+    #   xserver.videoDrivers = ["nvidia"];
+    # };
 
-    programs = {
-      steam = {
-        enable = true;
-        remotePlay.openFirewall = true;
-        protonTricks.enable = true;
-      };
+    # programs = {
+    #   steam = {
+    #     enable = true;
+    #     remotePlay.openFirewall = true;
+    #     protontricks.enable = true;
+    #   };
 
-      gamemode.enable = true;
-    };
+    #   gamemode.enable = true;
+    # };
+
+    system.stateVersion = "26.05";
   };
 }

@@ -14,7 +14,7 @@
     ];
     programs.noctalia = {
       enable = true;
-      recommendedServices = true;
+      recommendedServices.enable = true;
     };
   };
 }

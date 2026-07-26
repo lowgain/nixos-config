@@ -25,6 +25,8 @@
 
     time.timeZone = "America/Nassau";
 
+    networking.hostName = "wsl";
+
     wsl = {
       enable = true;
       defaultUser = "lowgain";
