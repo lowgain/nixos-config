@@ -4,9 +4,7 @@
   ...
 }: {
   flake.nixosConfigurations.htpc = inputs.nixpkgs.lib.nixosSystem {
-    modules = [
-      self.nixosModules.htpcModule
-    ];
+    modules = [ self.nixosModules.htpcModule ];
   };
 
   flake.nixosModules.htpcModule = {
@@ -16,7 +14,7 @@
   }: {
     imports = [
       self.nixosModules.htpcHardware
-      self.nixosModules.nix
+      self.nixosModules.headless
     ];
 
     hardware = {
@@ -72,11 +70,6 @@
       };
       extraUsers.kodi.isSystemUser = true;
     };
-
-    environment.systemPackages = with pkgs; [
-      vim
-      wget
-    ];
 
     services = {
       pipewire = {
