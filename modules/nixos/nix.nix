@@ -15,7 +15,7 @@
 
     programs.nh = {
       enable = true;
-      flake = "/home/user/lowgain/Dev/nixos-config";
+      flake = "/home/lowgain/Dev/nixos-config";
       clean = {
         enable = true;
         extraArgs = "--keep-since 7d --keep 3";
