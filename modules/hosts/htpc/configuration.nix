@@ -25,7 +25,10 @@
         powerOnBoot = true;
       };
       xone.enable = true;
-      graphics.extraPackages = [pkgs.intel-media-sdk];
+      graphics.extraPackages = with pkgs; [
+        intel-media-driver
+        vaapiIntel
+      ];
     };
 
     security = {
