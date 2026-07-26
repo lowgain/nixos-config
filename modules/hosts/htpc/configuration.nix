@@ -128,7 +128,7 @@
           IPSubnetWhitelistOptionsDialog.Size = "@Size(360 450)";
           AddNewTorrentDialog = {
             RememberLastSavePath = true;
-            SavePathHistory = "/home/htpc/Downloads";
+            SavePathHistory = "/srv/media";
           };
         };
       };
