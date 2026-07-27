@@ -10,10 +10,11 @@
   flake.nixosModules.fridgeModule = {pkgs, ...}: {
     imports = [
       self.nixosModules.fridgeHardware
-      self.nixosModules.desktop
+      # self.nixosModules.desktop
+      self.nixosModules.headless
       self.nixosModules.myHomeManager
       self.nixosModules.lowgainModule
-      self.nixosModules.avahi
+      # self.nixosModules.avahi
     ];
 
     hardware = {
@@ -41,10 +42,7 @@
 
     time.timeZone = "America/Nassau";
     i18n.defaultLocale = "en_US.UTF-8";
-    console = {
-      font = "Lat2-Terminus16";
-      useXkbConfig = true;
-    };
+    console.font = "Lat2-Terminus16";
 
     boot = {
       # kernelParams = ["amd_pstate=active" "quiet" "nvidia-drm.modeset=1"];
@@ -68,24 +66,24 @@
       networkmanager.enable = true;
     };
 
-    environment.systemPackages = with pkgs; [
-      wget
-      vim
+    # environment.systemPackages = with pkgs; [
       # heroic
       # mangohud
-    ];
+    # ];
 
     home-manager = {
       sharedModules = [
         self.homeModules.shell
-        self.homeModules.noctalia
+        # self.homeModules.noctalia
       ];
       users.lowgain = self.homeModules.lowgainModule;
     };
 
-    # services = {
+    services = {
+      openssh.enable = true;
     #   xserver.videoDrivers = ["nvidia"];
-    # };
+      xserver.xkb.layout = "us";
+    };
 
     # programs = {
     #   steam = {
@@ -97,6 +95,23 @@
     #   gamemode.enable = true;
     # };
 
-    system.stateVersion = "26.05";
+    # This option defines the first version of NixOS you have installed on this particular machine,
+    # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
+    #
+    # Most users should NEVER change this value after the initial install, for any reason,
+    # even if you've upgraded your system to a new NixOS release.
+    #
+    # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
+    # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
+    # to actually do that.
+    #
+    # This value being lower than the current NixOS release does NOT mean your system is
+    # out of date, out of support, or vulnerable.
+    #
+    # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
+    # and migrated your data accordingly.
+    #
+    # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
+    system.stateVersion = "26.05"; # Did you read the comment?
   };
 }
