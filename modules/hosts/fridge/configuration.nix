@@ -72,7 +72,7 @@
 
     home-manager = {
       sharedModules = [
-        # self.homeModules.desktop
+        self.homeModules.desktop
       ];
       users.lowgain = self.homeModules.lowgainModule;
     };
