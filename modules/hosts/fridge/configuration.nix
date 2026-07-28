@@ -10,8 +10,7 @@
   flake.nixosModules.fridgeModule = {pkgs, ...}: {
     imports = [
       self.nixosModules.fridgeHardware
-      # self.nixosModules.desktop
-      self.nixosModules.headless
+      self.nixosModules.desktop
       self.nixosModules.myHomeManager
       self.nixosModules.lowgainModule
       # self.nixosModules.avahi
@@ -73,8 +72,7 @@
 
     home-manager = {
       sharedModules = [
-        self.homeModules.shell
-        # self.homeModules.noctalia
+        # self.homeModules.desktop
       ];
       users.lowgain = self.homeModules.lowgainModule;
     };
