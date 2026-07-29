@@ -7,7 +7,7 @@
     modules = [self.nixosModules.fridgeModule];
   };
 
-  flake.nixosModules.fridgeModule = {pkgs, ...}: {
+  flake.nixosModules.fridgeModule = {pkgs, config, ...}: {
     imports = [
       self.nixosModules.fridgeHardware
       self.nixosModules.desktop
@@ -44,7 +44,7 @@
     console.font = "Lat2-Terminus16";
 
     boot = {
-      # kernelParams = ["amd_pstate=active" "quiet" "nvidia-drm.modeset=1"];
+      # kernelParams = [/* "amd_pstate=active" "quiet"*/ "nvidia-drm.modeset=1"];
       loader = {
         systemd-boot = {
           enable = true;
@@ -79,7 +79,7 @@
 
     services = {
       openssh.enable = true;
-    #   xserver.videoDrivers = ["nvidia"];
+      # xserver.videoDrivers = ["nvidia"];
       xserver.xkb.layout = "us";
     };
 
