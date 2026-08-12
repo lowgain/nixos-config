@@ -32,6 +32,8 @@
         enable = true;
         tmux.enableShellIntegration = true;
       };
+
+      lf.enable = true;
     };
   };
 }

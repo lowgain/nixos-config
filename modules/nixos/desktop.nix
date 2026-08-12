@@ -3,7 +3,7 @@
     imports = [
       self.nixosModules.headless
       self.nixosModules.stylix
-      self.nixosModules.niri
+      self.nixosModules.mangowm
       self.nixosModules.greetd
     ];
     programs.foot.enable = true;

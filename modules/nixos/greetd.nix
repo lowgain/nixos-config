@@ -1,16 +1,19 @@
 {
-  flake.nixosModules.greetd = {pkgs, ...}: {
+  flake.nixosModules.greetd = {pkgs, ...}: let
+    mangoConfig = pkgs.writeText "greetd-mango-config" ''
+      exec-once=${pkgs.greetd.gtkgreet}/bin/gtkgreet -l; mmsg dispatch quit
+    '';
+  in {
     environment.etc."greetd/environments".text = ''
-      niri
+      mango
       bash
     '';
 
     services.greetd = {
       enable = true;
-      settings = rec {
+      settings = {
         default_session = {
-          command = "${pkgs.cage}/bin/cage -s -- ${pkgs.gtkgreet}/bin/gtkgreet";
-          user = "lowgain";
+          command = "${pkgs.mango}/bin/mango -c ${mangoConfig}";
         };
       };
     };

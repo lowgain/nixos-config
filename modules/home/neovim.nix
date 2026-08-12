@@ -11,17 +11,19 @@
         vim.opt.relativenumber = true
         vim.opt.expandtab = true
         vim.opt.tabstop = 2
-        vim.opt.shiftwidth = 0
+        vim.opt.softtabstop = 2
+        vim.opt.shiftwidth = 2
+        vim.opt.cursorline = true
       '';
       coc.enable = true;
       plugins = with pkgs.vimPlugins; [
         nvim-lspconfig
         nvim-treesitter.withAllGrammars
-        oil-nvim
+        # oil-nvim
         auto-pairs
-        comment-nvim
+        # comment-nvim
         vim-airline
-        conform-nvim
+        # conform-nvim
         vim-nix
       ];
     };

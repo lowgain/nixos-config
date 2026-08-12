@@ -4,22 +4,6 @@
       inputs.stylix.nixosModules.stylix
     ];
 
-    home-manager.sharedModules = [
-      {
-        stylix = {
-          targets = {
-            neovim = {
-              transparentBackground = {
-                main = true;
-                numberLine = true;
-                signColumn = true;
-              };
-            };
-          };
-        };
-      }
-    ];
-
     stylix = {
       enable = true;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
@@ -60,8 +44,6 @@
       #     name = Bibata Modern Amber;
       #     size = 32;
       # };
-
-      opacity.terminal = 0.8;
     };
   };
 }

@@ -18,7 +18,7 @@
       flake = "/home/lowgain/Dev/nixos-config";
       clean = {
         enable = true;
-        extraArgs = "--keep-since 7d --keep 3";
+        extraArgs = " --keep 3";
       };
     };
   };
