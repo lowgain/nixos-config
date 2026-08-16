@@ -8,21 +8,21 @@
         blur_layer = 0;
         blur_optimized = 1;
         blur_params = {
-          num_passes  =  2;
-          radius  =  5;
-          noise  =  0.02;
-          brightness  =  0.9;
-          contrast  =  0.9;
-          saturation  =  1.2;
+          num_passes = 2;
+          radius = 5;
+          noise = 0.02;
+          brightness = 0.9;
+          contrast = 0.9;
+          saturation = 1.2;
         };
 
-        shadows  =  0;
-        layer_shadows  =  0;
-        shadow_only_floating  =  1;
-        shadows_size  =  10;
-        shadows_blur  =  15;
-        shadows_position_x  =  0;
-        shadows_position_y  =  0;
+        shadows = 0;
+        layer_shadows = 0;
+        shadow_only_floating = 1;
+        shadows_size = 10;
+        shadows_blur = 15;
+        shadows_position_x = 0;
+        shadows_position_y = 0;
         # shadowscolor =  0x000000ff;
 
         border_radius = 6;
@@ -64,7 +64,7 @@
         edge_scroller_pointer_focus = 1;
         edge_scroller_focus_allow_speed = 0.0;
         scroller_default_proportion_single = 1.0;
-        scroller_proportion_preset = 0.5,0.8,1.0;
+        scroller_proportion_preset = "0.5,0.8,1.0";
 
         # Master-Stack Layout Setting
         new_is_master = 1;
@@ -161,7 +161,7 @@
         # key bindings
         # key name refer to `xev` or `wev` command output,;
         # mod keys name: super,ctrl,alt,shift,none;
-        
+
         bind = [
           # reload config
           "super,r,reload_config"
