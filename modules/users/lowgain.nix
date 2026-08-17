@@ -2,7 +2,7 @@
   flake.nixosModules.lowgainModule = {
     users.users.lowgain = {
       isNormalUser = true;
-      extraGroups = ["wheel" "networkmanager"];
+      extraGroups = ["wheel" "networkmanager" "scanner" "lp"];
       home = "/home/lowgain";
       initialPassword = "Lowgain";
       openssh.authorizedKeys.keys = [

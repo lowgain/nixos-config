@@ -1,11 +1,43 @@
-{self, ...}: {
-  flake.nixosModules.desktop = {
-    imports = [
-      self.nixosModules.headless
-      self.nixosModules.stylix
-      self.nixosModules.greetd
+{
+  flake.nixosModules.desktop = {pkgs, ...}: {
+
+    hardware = {
+      graphics = {
+        enable = true;
+        enable32Bit = true;
+      };
+
+      sane.enable = true;
+    };
+
+    security.rtkit.enable = true;
+
+    services = {
+      pipewire = {
+        enable = true;
+        alsa.enable = true;
+        alsa.support32Bit = true;
+        pulse.enable = true;
+      };
+
+      printing.enable = true;
+
+      libinput.enable = true;
+
+
+    };
+
+    programs = {
+      mtr.enable = true;
+      gnupg.agent = {
+        enable = true;
+        enableSSHSupport = true;
+      };
+    };
+
+    environment.systemPackages = with pkgs; [
+      nautilus
+      simple-scan
     ];
-    programs.foot.enable = true;
-    programs.firefox.enable = true;
   };
 }

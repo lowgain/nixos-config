@@ -11,7 +11,6 @@
     imports = [
       inputs.nixos-wsl.nixosModules.default
       self.nixosModules.nix
-      self.nixosModules.headless
       self.nixosModules.stylix
       self.nixosModules.myHomeManager
       self.nixosModules.lowgainModule

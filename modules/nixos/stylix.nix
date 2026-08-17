@@ -8,6 +8,7 @@
       enable = true;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
       image = ../../media/walls/treasure-planet-spaceship.png;
+      opacity.terminal = 0.8;
       fonts = {
         serif = {
           package = pkgs.atkinson-hyperlegible-next;
@@ -32,18 +33,18 @@
         sizes.terminal = 14;
       };
 
-      # icons = {
-      #     enable = true;
-      #     package = pkgs.papirus-nord;
-      #     light = auroraorange;
-      #     dark = auroraorangeb;
-      # };
+      icons = {
+          enable = true;
+          package = pkgs.papirus-icon-theme;
+          light = "Papirus-Light";
+          dark = "Papirus-Dark";
+      };
 
-      # cursor = {
-      #     package = pkgs.bibata-cursors;
-      #     name = Bibata Modern Amber;
-      #     size = 32;
-      # };
+      cursor = {
+          package = pkgs.bibata-cursors;
+          name = "Bibata-Modern-Amber";
+          size = 24;
+      };
     };
   };
 }
