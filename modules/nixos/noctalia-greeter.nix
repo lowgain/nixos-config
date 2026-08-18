@@ -5,7 +5,6 @@
     ];
     programs.noctalia-greeter = {
       enable = true;
-      greeter-args = "";
       settings = {
         cursor = {
           theme = "Bibata-Modern-Amber";
