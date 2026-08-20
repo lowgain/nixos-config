@@ -11,29 +11,10 @@
 
     programs = {
       bash.enable = true;
-
-      direnv = {
-        enable = true;
-        silent = true;
-        enableBashIntegration = true;
-        nix-direnv.enable = true;
-      };
-
       tmux = {
         enable = true;
         keyMode = "vi";
       };
-
-      starship = {
-        enable = true;
-      };
-
-      fzf = {
-        enable = true;
-        tmux.enableShellIntegration = true;
-      };
-
-      lf.enable = true;
     };
   };
 }

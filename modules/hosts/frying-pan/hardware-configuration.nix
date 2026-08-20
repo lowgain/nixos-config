@@ -1,0 +1,35 @@
+{
+  flake.nixosModules.fryingPanHardware = {
+    config,
+    lib,
+    modulesPath,
+    ...
+  }: {
+    imports = [
+      (modulesPath + "/installer/scan/not-detected.nix")
+    ];
+
+    boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci"];
+    boot.initrd.kernelModules = [];
+    boot.kernelModules = ["kvm-amd"];
+    boot.extraModulePackages = [];
+
+    fileSystems."/" = {
+      device = "/dev/disk/by-uuid/3d3e5b01-bb5e-4025-b622-b38585ef5f36";
+      fsType = "ext4";
+    };
+
+    fileSystems."/boot" = {
+      device = "/dev/disk/by-uuid/53B6-D886";
+      fsType = "vfat";
+      options = ["fmask=0077" "dmask=0077"];
+    };
+
+    swapDevices = [
+      {device = "/dev/disk/by-uuid/b0e652c7-6c0f-47be-aa8a-b414e77314c8";}
+    ];
+
+    nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+    hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  };
+}

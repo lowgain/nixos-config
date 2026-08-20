@@ -1,6 +1,5 @@
 {
   flake.nixosModules.desktop = {pkgs, ...}: {
-
     hardware = {
       graphics = {
         enable = true;
@@ -10,7 +9,10 @@
       sane.enable = true;
     };
 
-    security.rtkit.enable = true;
+    security = {
+      sudo.wheelNeedsPassword = false;
+      rtkit.enable = true;
+    };
 
     services = {
       pipewire = {
@@ -23,8 +25,6 @@
       printing.enable = true;
 
       libinput.enable = true;
-
-
     };
 
     programs = {
@@ -38,6 +38,7 @@
     environment.systemPackages = with pkgs; [
       nautilus
       simple-scan
+      onlyoffice-desktopeditors
     ];
   };
 }

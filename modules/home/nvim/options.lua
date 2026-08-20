@@ -1,0 +1,26 @@
+vim.opt.relativenumber = true
+vim.opt.number = true
+vim.opt.signcolumn = true
+vim.opt.colorcolumn = "80"
+vim.opt.cursorline = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.softtabstop = 2
+vim.opt.list = true
+vim.opt.listchars = {
+  tab = "| ",
+  trail = "·",
+  nbsp = "␣",
+  extends = "…",
+  space = "·",
+}
+vim.opt.sidescrolloff = 10
+vim.opt.scrolloff = 10
+vim.opt.wrap = false
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+vim.api.nvim_set_hl(0, "Normal", { bg = "none"})
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none"})
+vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none"})
+vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "none"})
