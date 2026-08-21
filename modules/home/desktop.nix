@@ -10,6 +10,12 @@
           b = "https://search.brave.com/search?q={}";
         };
       };
+      chromium = {
+        enable = true;
+        extensions = [
+          "fdjamakpfbbddfjaooikfcpapjohcfmg"
+        ];
+      };
       mpv.enable = true;
       w3m.enable = true;
       btop.enable = true;

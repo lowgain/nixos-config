@@ -26,7 +26,7 @@
         }
         {
           plugin = lualine-nvim;
-          config = "require(\"lualine\").setup()";
+          config = "${builtins.readFile ./nvim/plugin/lualine.lua}";
         }
         {
           plugin = telescope-nvim;
@@ -40,6 +40,11 @@
       initLua = ''
         ${builtins.readFile ./nvim/options.lua}
       '';
+    };
+    stylix.targets.neovim.transparentBackground = {
+      main = true;
+      numberLine = true;
+      signColumn = true;
     };
   };
 }
