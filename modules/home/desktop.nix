@@ -4,7 +4,6 @@
       self.homeModules.browsers
     ];
     programs = {
-      bash.enable = true;
       mpv.enable = true;
       w3m.enable = true;
       btop.enable = true;
@@ -31,6 +30,9 @@
         enableBashIntegration = true;
         nix-direnv.enable = true;
       };
+    };
+    services = {
+      udiskie.enable = true;
     };
     home = {
       shellAliases = {

@@ -5,8 +5,21 @@
     programs.noctalia = {
       enable = true;
       settings = {
+        shell = {
+          time_format = "%l:%M %P";
+          setup_wizard_enabled = false;
+          niri_overview_type_to_launch_enabled = true;
+          polkit_agent = true;
+          greeter_sync = {
+            auto_sync = true;
+          };
+        };
         wallpaper = {
+          enabled = true;
+          fill_mode = "crop";
+          fill_color = "#282828";
           transition = ["fade"];
+          default = "../../media/walls/treasure-planet-spaceship.png";
         };
         bar.default = {
           radius = 0;

@@ -17,6 +17,7 @@
       self.nixosModules.shell
       self.nixosModules.desktop
       self.nixosModules.stylix
+      self.nixosModules.qbittorrent
     ];
 
     time.timeZone = "America/Nassau";
@@ -24,6 +25,8 @@
     console.font = "Lat2-Terminus16";
 
     boot = {
+      kernelParams = ["quiet" "loglevel=3"];
+      blacklistedKernelModules = ["i2c_smbus" "i2c_piix4"];
       loader = {
         systemd-boot = {
           enable = true;

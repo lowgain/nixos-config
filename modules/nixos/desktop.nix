@@ -12,6 +12,7 @@
     security = {
       sudo.wheelNeedsPassword = false;
       rtkit.enable = true;
+      polkit.enablePkexecWrapper = true;
     };
 
     services = {
