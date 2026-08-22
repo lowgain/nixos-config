@@ -7,7 +7,6 @@
     stylix = {
       enable = true;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-      image = ../../media/walls/treasure-planet-spaceship.png;
       opacity.terminal = 0.8;
       fonts = {
         serif = {

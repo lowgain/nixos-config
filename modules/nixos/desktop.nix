@@ -25,6 +25,8 @@
       printing.enable = true;
 
       libinput.enable = true;
+
+      udisks2.enable = true;
     };
 
     programs = {

@@ -8,11 +8,6 @@
   };
 
   flake.nixosModules.fryingPanModule = {
-    pkgs,
-    lib,
-    config,
-    ...
-  }: {
     imports = [
       self.nixosModules.fryingPanHardware
       self.nixosModules.myHomeManager
@@ -38,8 +33,6 @@
         efi.canTouchEfiVariables = true;
       };
     };
-
-    security.sudo.wheelNeedsPassword = false;
 
     networking = {
       hostName = "frying-pan";
@@ -67,8 +60,8 @@
               {
                 matches = [{app-id = "dev.noctalia.Noctalia";}];
                 open-floating = true;
-                default-column-width = {fixed = 1080;}; # display height
-                default-window-height = {fixed = 920;}; # display width - 1000
+                default-column-width = {fixed = 1080;};
+                default-window-height = {fixed = 800;};
               }
             ];
           };
@@ -79,9 +72,7 @@
 
     services = {
       openssh.enable = true;
-      xserver = {
-        xkb.layout = "us";
-      };
+      xserver.xkb.layout = "us";
     };
 
     # This option defines the first version of NixOS you have installed on this particular machine,

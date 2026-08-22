@@ -1,21 +1,9 @@
-{
+{self, ...}: {
   flake.homeModules.desktop = {pkgs, ...}: {
+    imports = [
+      self.homeModules.browsers
+    ];
     programs = {
-      qutebrowser = {
-        enable = true;
-        searchEngines = {
-          nw = "https://wiki.nixos.org/index.php?search={}";
-          np = "https://search.nixos.org/packages?channel=unstable&query={}";
-          no = "https://search.nixos.org/options?channel=unstable&query={}";
-          b = "https://search.brave.com/search?q={}";
-        };
-      };
-      chromium = {
-        enable = true;
-        extensions = [
-          "fdjamakpfbbddfjaooikfcpapjohcfmg"
-        ];
-      };
       mpv.enable = true;
       w3m.enable = true;
       btop.enable = true;
@@ -56,6 +44,7 @@
           "x-scheme-handler/https" = "qutebrowser.desktop";
           "x-scheme-handler/about" = "qutebrowser.desktop";
           "x-scheme-handler/unknown" = "qutebrowser.desktop";
+          "inode/directory" = "lf.desktop";
         };
       };
     };
