@@ -6,6 +6,9 @@
     programs.noctalia-greeter = {
       enable = true;
       settings = {
+        appearance = {
+          theme = "Synced";
+        };
         cursor = {
           theme = "Bibata-Modern-Amber";
           size = 24;

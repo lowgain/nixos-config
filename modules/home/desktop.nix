@@ -4,6 +4,7 @@
       self.homeModules.browsers
     ];
     programs = {
+      bash.enable = true;
       mpv.enable = true;
       w3m.enable = true;
       btop.enable = true;
@@ -31,19 +32,33 @@
         nix-direnv.enable = true;
       };
     };
-    home.packages = with pkgs; [
-      tldr
-    ];
+    home = {
+      shellAliases = {
+        grep = "rg";
+        ".." = "cd ..";
+        "..." = "cd ...";
+        cd = "z";
+        find = "fd";
+        cat = "bat";
+        ls = "eza";
+        ll = "eza -l";
+        la = "eza -la";
+        pr = "pay-respects";
+      };
+      packages = with pkgs; [
+        tldr
+      ];
+    };
     xdg = {
       userDirs.enable = true;
       mimeApps = {
         enable = true;
         defaultApplications = {
-          "text/html" = "qutebrowser.desktop";
-          "x-scheme-handler/http" = "qutebrowser.desktop";
-          "x-scheme-handler/https" = "qutebrowser.desktop";
-          "x-scheme-handler/about" = "qutebrowser.desktop";
-          "x-scheme-handler/unknown" = "qutebrowser.desktop";
+          "text/html" = "org.qutebrowser.qutebrowser.desktop";
+          "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
+          "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
+          "x-scheme-handler/about" = "org.qutebrowser.qutebrowser.desktop";
+          "x-scheme-handler/unknown" = "org.qutebrowser.qutebrowser.desktop";
           "inode/directory" = "lf.desktop";
         };
       };
