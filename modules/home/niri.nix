@@ -14,7 +14,7 @@
           };
           cursor.size = 24;
           spawn-at-startup = [
-            { argv = ["noctalia"]; }
+            {argv = ["noctalia"];}
           ];
           input = {
             keyboard = {
@@ -52,7 +52,7 @@
             "Mod+Comma".action.spawn = ["noctalia" "msg" "settings-toggle"];
             "Alt+Tab".action.spawn = ["noctalia" "msg" "window-switcher"];
 
-            "Mod+Return".action.spawn = ["foot"];
+            "Mod+Return".action.spawn = ["foot" "-e" "tmux"];
 
             "XF86AudioRaiseVolume".action.spawn = ["noctalia" "msg" "volume-up"];
             "XF86AudioLowerVolume".action.spawn = ["noctalia" "msg" "volume-down"];
@@ -187,7 +187,6 @@
             "Mod+Shift+V".action.switch-focus-between-floating-and-tiling = [];
 
             "Mod+W".action.toggle-column-tabbed-display = [];
-
 
             "Print".action.screenshot = [];
             "Ctrl+Print".action.screenshot-screen = [];

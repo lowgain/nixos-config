@@ -7,7 +7,12 @@
     modules = [self.nixosModules.vmModule];
   };
 
-  flake.nixosModules.vmModule = {pkgs, lib, config, ...}: {
+  flake.nixosModules.vmModule = {
+    pkgs,
+    lib,
+    config,
+    ...
+  }: {
     imports = [
       self.nixosModules.vmHardware
       self.nixosModules.myHomeManager
@@ -52,7 +57,7 @@
       networkmanager.enable = true;
     };
 
-    home-manager= {
+    home-manager = {
       sharedModules = [
         self.homeModules.shell
         self.homeModules.niri
@@ -73,8 +78,8 @@
               {
                 matches = [{app-id = "dev.noctalia.Noctalia";}];
                 open-floating = true;
-                default-column-width = { fixed = 600; }; # display height
-                default-window-height = { fixed = 200; }; # display width - 1000
+                default-column-width = {fixed = 600;}; # display height
+                default-window-height = {fixed = 200;}; # display width - 1000
               }
             ];
           };

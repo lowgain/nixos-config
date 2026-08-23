@@ -1,8 +1,0 @@
-{
-  flake.nixosModules.qbittorrent = {pkgs, ...}: {
-    services.qbittorrent = {
-      enable = true;
-      package = pkgs.qbittorrent;
-    };
-  };
-}

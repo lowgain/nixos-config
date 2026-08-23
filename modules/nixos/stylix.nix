@@ -33,16 +33,16 @@
       };
 
       icons = {
-          enable = true;
-          package = pkgs.papirus-icon-theme;
-          light = "Papirus-Light";
-          dark = "Papirus-Dark";
+        enable = true;
+        package = pkgs.papirus-icon-theme;
+        light = "Papirus-Light";
+        dark = "Papirus-Dark";
       };
 
       cursor = {
-          package = pkgs.bibata-cursors;
-          name = "Bibata-Modern-Amber";
-          size = 24;
+        package = pkgs.bibata-cursors;
+        name = "Bibata-Modern-Amber";
+        size = 24;
       };
     };
   };

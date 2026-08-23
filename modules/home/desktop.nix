@@ -2,9 +2,9 @@
   flake.homeModules.desktop = {pkgs, ...}: {
     imports = [
       self.homeModules.browsers
+      self.homeModules.mpv
     ];
     programs = {
-      mpv.enable = true;
       w3m.enable = true;
       btop.enable = true;
       ripgrep.enable = true;
@@ -49,6 +49,7 @@
       };
       packages = with pkgs; [
         tldr
+        qbittorrent
       ];
     };
     xdg = {

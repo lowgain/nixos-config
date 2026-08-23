@@ -17,12 +17,13 @@
       self.nixosModules.shell
       self.nixosModules.desktop
       self.nixosModules.stylix
-      self.nixosModules.qbittorrent
     ];
 
     time.timeZone = "America/Nassau";
     i18n.defaultLocale = "en_US.UTF-8";
     console.font = "Lat2-Terminus16";
+
+    hardware.enableRedistributableFirmware = true;
 
     boot = {
       kernelParams = ["quiet" "loglevel=3"];

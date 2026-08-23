@@ -6,7 +6,6 @@
       enable = true;
       settings = {
         shell = {
-          time_format = "%l:%M %P";
           setup_wizard_enabled = false;
           niri_overview_type_to_launch_enabled = true;
           polkit_agent = true;
@@ -28,7 +27,7 @@
           margin_ends = 0;
           start = ["workspaces" "media"];
           center = ["clock"];
-          end = ["tray" "control-center"];
+          end = ["tray" "battery" "volume" "network" "control-center"];
         };
         nightlight.enabled = true;
         weather.unit = "imperial";

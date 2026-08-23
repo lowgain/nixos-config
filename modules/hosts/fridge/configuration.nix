@@ -7,7 +7,11 @@
     modules = [self.nixosModules.fridgeModule];
   };
 
-  flake.nixosModules.fridgeModule = {pkgs, config, ...}: {
+  flake.nixosModules.fridgeModule = {
+    pkgs,
+    config,
+    ...
+  }: {
     imports = [
       self.nixosModules.fridgeHardware
       self.nixosModules.desktop
@@ -66,8 +70,8 @@
     };
 
     # environment.systemPackages = with pkgs; [
-      # heroic
-      # mangohud
+    # heroic
+    # mangohud
     # ];
 
     home-manager = {
