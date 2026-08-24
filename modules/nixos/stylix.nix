@@ -4,13 +4,6 @@
       inputs.stylix.nixosModules.stylix
     ];
 
-    fonts = {
-      packages = [
-        pkgs.nerd-fonts.symbols-only
-      ];
-      fontconfig.enable = true;
-    };
-
     stylix = {
       enable = true;
       polarity = "dark";

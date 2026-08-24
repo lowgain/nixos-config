@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.niri = {
+  flake.nixosModules.niri = {pkgs, ...}: {
     imports = [
       inputs.niri.nixosModules.niri
       self.nixosModules.noctalia
@@ -13,5 +13,9 @@
     nixpkgs.overlays = [inputs.niri.overlays.niri];
 
     programs.niri.enable = true;
+
+    environment.systemPackages = with pkgs; [
+      nautilus
+    ];
   };
 }

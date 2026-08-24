@@ -26,7 +26,6 @@
         usbutils
         pciutils
         tree
-        btop
       ];
     };
 

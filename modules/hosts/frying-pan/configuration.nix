@@ -21,13 +21,10 @@
 
     time.timeZone = "America/Nassau";
     i18n.defaultLocale = "en_US.UTF-8";
-    console.font = "Lat2-Terminus16";
-
-    hardware.enableRedistributableFirmware = true;
 
     boot = {
       kernelParams = ["quiet" "loglevel=3"];
-      blacklistedKernelModules = ["i2c_smbus" "i2c_piix4"];
+      blacklistedKernelModules = ["i2c_smbus" "i2c_piix4"]; # Silence boot errors
       loader = {
         systemd-boot = {
           enable = true;
