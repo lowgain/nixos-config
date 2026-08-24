@@ -4,8 +4,16 @@
       inputs.stylix.nixosModules.stylix
     ];
 
+    fonts = {
+      packages = [
+        pkgs.nerd-fonts.symbols-only
+      ];
+      fontconfig.enable = true;
+    };
+
     stylix = {
       enable = true;
+      polarity = "dark";
       base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
       opacity.terminal = 0.8;
       fonts = {
@@ -20,7 +28,7 @@
         };
 
         monospace = {
-          package = pkgs.atkinson-hyperlegible-mono;
+          package = pkgs.nerd-fonts.atkynson-mono;
           name = "Atkinson Hyperlegible Mono Regular";
         };
 

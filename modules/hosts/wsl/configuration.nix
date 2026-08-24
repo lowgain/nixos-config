@@ -14,6 +14,7 @@
       self.nixosModules.stylix
       self.nixosModules.myHomeManager
       self.nixosModules.lowgainModule
+      self.nixosModules.nvf
     ];
 
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

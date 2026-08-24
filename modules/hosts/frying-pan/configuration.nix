@@ -45,7 +45,6 @@
 
     home-manager = {
       sharedModules = [
-        self.homeModules.shell
         self.homeModules.niri
         self.homeModules.desktop
         {
