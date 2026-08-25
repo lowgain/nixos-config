@@ -30,8 +30,9 @@
           };
         };
         settings = {
-          colors.webpage.darkmode = {
-            enabled = true;
+          colors.webpage = {
+            darkmode.enabled = true;
+            preferred_color_scheme = "dark";
           };
           content = {
             cookies.accept = "no-3rdparty";
@@ -67,8 +68,8 @@
             show = "never";
           };
           url = {
-            default_page = "https://search.yuri.llc/";
-            start_pages = "https://search.yuri.llc/";
+            default_page = "qute://start";
+            start_pages = "qute://start";
           };
           window.transparent = true;
         };
