@@ -9,6 +9,7 @@
       HandleHibernateKey = "ignore";
       HandleLidSwitch = "ignore";
       HandleLidSwitchDocked = "ignore";
+      HandleLidSwitchExternalPower = "ignore";
     };
     programs.noctalia = {
       enable = true;

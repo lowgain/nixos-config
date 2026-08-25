@@ -19,7 +19,7 @@
         }
       );
       config = {
-        ytdl-format = "bestvideo+bestaudio";
+        ytdl-format = "bestvideo[height<=?1080][vcodec^=av0]+bestaudio";
       };
     };
   };

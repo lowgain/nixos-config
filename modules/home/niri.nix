@@ -52,7 +52,7 @@
             "Mod+Comma".action.spawn = ["noctalia" "msg" "settings-toggle"];
             "Alt+Tab".action.spawn = ["noctalia" "msg" "window-switcher"];
 
-            "Mod+Return".action.spawn = ["foot" "-e" "tmux"];
+            "Mod+Return".action.spawn = ["foot"];
 
             "XF86AudioRaiseVolume".action.spawn = ["noctalia" "msg" "volume-up"];
             "XF86AudioLowerVolume".action.spawn = ["noctalia" "msg" "volume-down"];
