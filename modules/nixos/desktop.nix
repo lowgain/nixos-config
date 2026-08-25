@@ -15,6 +15,11 @@
       polkit.enablePkexecWrapper = true;
     };
 
+    powerManagement.resumeCommands = ''
+      rmmod iwlwifi
+      modprobe iwlwifi
+    '';
+
     services = {
       pipewire = {
         enable = true;
@@ -24,6 +29,7 @@
       };
 
       printing.enable = true;
+      ipp-usb.enable = true;
 
       libinput.enable = true;
 

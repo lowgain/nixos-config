@@ -7,7 +7,7 @@
     stylix = {
       enable = true;
       polarity = "dark";
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-soft.yaml";
       opacity.terminal = 0.8;
       fonts = {
         serif = {

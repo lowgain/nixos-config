@@ -11,8 +11,8 @@
         vimAlias = true;
         theme = {
           enable = true;
-          name = "gruvbox";
-          style = "dark";
+          name = "everforest";
+          style = "soft";
           transparent = true;
         };
         lsp = {
@@ -88,7 +88,6 @@
     stylix = {
       targets.nvf = {
         enable = false;
-        # transparentBackground = true;
       };
     };
   };

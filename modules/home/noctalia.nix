@@ -16,9 +16,9 @@
         wallpaper = {
           enabled = true;
           fill_mode = "crop";
-          fill_color = "#282828";
+          fill_color = "#48584E";
           transition = ["fade"];
-          default = "../../media/walls/treasure-planet-spaceship.png";
+          default = "../../media/walls/picture-shrine-green.jpg";
         };
         bar.default = {
           radius = 0;
