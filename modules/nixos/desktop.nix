@@ -43,10 +43,5 @@
         enableSSHSupport = true;
       };
     };
-
-    environment.systemPackages = with pkgs; [
-      simple-scan
-      onlyoffice-desktopeditors
-    ];
   };
 }
