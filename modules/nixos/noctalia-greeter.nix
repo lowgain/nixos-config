@@ -9,8 +9,8 @@
         appearance = {
           theme = "Synced";
           cursor = {
-            package = pkgs.bibata-cursors;
-            name = "Bibata-Modern-Amber";
+            path = "${pkgs.bibata-cursors}/share/icons";
+            theme = "Bibata-Modern-Amber";
             size = 24;
           };
         };
