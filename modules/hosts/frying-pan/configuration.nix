@@ -18,6 +18,7 @@
       self.nixosModules.desktop
       self.nixosModules.stylix
       self.nixosModules.nvf
+      self.nixosModules.gaming
     ];
 
     time.timeZone = "America/Nassau";
