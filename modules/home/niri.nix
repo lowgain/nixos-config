@@ -26,6 +26,12 @@
             focus-follows-mouse.enable = true;
             power-key-handling.enable = false;
           };
+          layer-rules = [
+            {
+              matches = [{namespace = "^noctalia-backdrop";}];
+              place-within-backdrop = true;
+            }
+          ];
           window-rules = [
             {
               geometry-corner-radius = {
@@ -51,6 +57,7 @@
             "Mod+S".action.spawn = ["noctalia" "msg" "panel-toggle" "control-center"];
             "Mod+Comma".action.spawn = ["noctalia" "msg" "settings-toggle"];
             "Alt+Tab".action.spawn = ["noctalia" "msg" "window-switcher"];
+            "Mod+Period".action.spawn = ["noctalia" "msg" "panel-toggle" "session"];
 
             "Mod+Return".action.spawn = ["foot"];
 
