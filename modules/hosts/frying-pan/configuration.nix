@@ -25,9 +25,11 @@
     i18n.defaultLocale = "en_US.UTF-8";
 
     boot = {
-      kernelParams = ["quiet" "loglevel=3"];
+      kernelParams = ["quiet" "splash" "console=/dev/null"];
       blacklistedKernelModules = ["i2c_smbus" "i2c_piix4"]; # Silence boot errors
+      plymouth.enable = true;
       loader = {
+        timeout = 1;
         systemd-boot = {
           enable = true;
           memtest86.enable = true;

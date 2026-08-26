@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  flake.nixosModules.noctalia-greeter = {
+  flake.nixosModules.noctalia-greeter = {pkgs, ...}: {
     imports = [
       inputs.noctalia-greeter.nixosModules.default
     ];
@@ -8,6 +8,11 @@
       settings = {
         appearance = {
           theme = "Synced";
+          cursor = {
+            package = pkgs.bibata-cursors;
+            name = "Bibata-Modern-Amber";
+            size = 24;
+          };
         };
       };
     };
