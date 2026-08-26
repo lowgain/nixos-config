@@ -7,10 +7,6 @@
         experimental-features = ["nix-command" "flakes"];
         trusted-users = ["@wheel"];
       };
-      optimise = {
-        automatic = true;
-        dates = "weekly";
-      };
     };
 
     programs.nh = {
@@ -18,7 +14,7 @@
       flake = "/home/lowgain/Dev/nixos-config";
       clean = {
         enable = true;
-        extraArgs = " --keep 3 --no-direnv";
+        extraArgs = "--keep 3 --no-direnv --optimise";
       };
     };
   };
