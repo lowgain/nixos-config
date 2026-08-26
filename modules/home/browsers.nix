@@ -21,11 +21,11 @@
           nw = "https://wiki.nixos.org/w/index.php?search={}";
           np = "https://search.nixos.org/packages?channel=unstable&query={}";
           no = "https://search.nixos.org/options?channel=unstable&query={}";
-          yt = "https://yt.chocolatemoo53.com/search?q={}";
+          yt = "https://inv.nadeko.net/search?q={}";
         };
         quickmarks = {
           cheat-sheet = "qute://help/img/cheatsheet-big.png";
-          yt = "https://yt.chocolatemoo53.com/";
+          yt = "https://inv.nadeko.net/";
           tmail = "https://mail.tutanota.com/";
         };
         keyBindings = {
