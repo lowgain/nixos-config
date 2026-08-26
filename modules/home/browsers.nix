@@ -1,5 +1,5 @@
 {
-  flake.homeModules.browsers = {
+  flake.homeModules.browsers = {pkgs, ...}: {
     programs = {
       qutebrowser = let
         filepicker = [
@@ -12,6 +12,10 @@
         ];
       in {
         enable = true;
+        package = pkgs.qutebrowser.override {
+          enableWideVine = true;
+          enableVulkan = true;
+        };
         searchEngines = {
           DEFAULT = "https://search.brave.com/search?q={}";
           nw = "https://wiki.nixos.org/w/index.php?search={}";
