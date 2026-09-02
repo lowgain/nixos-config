@@ -13,11 +13,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix = {
-      url = "github:nix-community/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     niri.url = "github:epireyn/niri-flake";
 
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
@@ -35,6 +30,7 @@
       "https://cache.nixos.org"
       "https://noctalia.cachix.org"
       "https://nvf.cachix.org"
+      "https://niri-epireyn.cachix.org"
     ];
     extra-trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="

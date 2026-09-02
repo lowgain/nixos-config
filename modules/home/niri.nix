@@ -41,11 +41,13 @@
                 top-right = 20.0;
               };
               clip-to-geometry = true;
+              open-maximized = true;
             }
           ];
           switch-events = {
             lid-close.action.spawn = ["noctalia" "msg" "session" "lock-and-suspend"];
           };
+          hotkey-overlay.skip-at-startup = true;
           binds = {
             "Mod+Q".action.close-window = [];
             "Mod+Shift+E".action.quit = [];
@@ -58,12 +60,15 @@
             "Mod+Comma".action.spawn = ["noctalia" "msg" "settings-toggle"];
             "Alt+Tab".action.spawn = ["noctalia" "msg" "window-switcher"];
             "Mod+Period".action.spawn = ["noctalia" "msg" "panel-toggle" "session"];
-
+            "Mod+Alt+L".action.spawn = ["noctalia" "msg" "session" "lock"];
             "Mod+Return".action.spawn = ["foot"];
 
             "XF86AudioRaiseVolume".action.spawn = ["noctalia" "msg" "volume-up"];
             "XF86AudioLowerVolume".action.spawn = ["noctalia" "msg" "volume-down"];
             "XF86AudioMute".action.spawn = ["noctalia" "msg" "volume-mute"];
+            "Ctrl+XF86AudioRaiseVolume".action.spawn = ["noctalia" "msg" "media" "next"];
+            "Ctrl+XF86AudioLowerVolume".action.spawn = ["noctalia" "msg" "media" "previous"];
+            "Ctrl+XF86AudioMute".action.spawn = ["noctalia" "msg" "media" "toggle"];
             "XF86AudioPlay".action.spawn = ["noctalia" "msg" "media" "toggle"];
             "XF86AudioPause".action.spawn = ["noctalia" "msg" "media" "toggle"];
             "XF86AudioStop".action.spawn = ["noctalia" "msg" "media" "stop"];
@@ -173,10 +178,10 @@
             "Mod+Ctrl+Shift+R".action.switch-preset-window-height = [];
             "Mod+Ctrl+R".action.reset-window-height = [];
 
-            "Mod+F".action.maximize-column = [];
+            "Mod+F".action.maximize-window-to-edges = [];
             "Mod+Shift+F".action.fullscreen-window = [];
 
-            "Mod+M".action.maximize-window-to-edges = [];
+            "Mod+M".action.maximize-column = [];
 
             "Mod+Ctrl+F".action.expand-column-to-available-width = [];
 
@@ -198,10 +203,6 @@
             "Print".action.screenshot = [];
             "Ctrl+Print".action.screenshot-screen = [];
             "Alt+Print".action.screenshot-window = [];
-
-            "Mod+Escape".action.toggle-keyboard-shortcuts-inhibit = [];
-
-            "Mod+Shift+P".action.power-off-monitors = [];
           };
           debug = {
             # Allows notification actions and window activation from Noctalia.

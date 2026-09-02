@@ -17,7 +17,7 @@
           enableVulkan = true;
         };
         searchEngines = {
-          DEFAULT = "https://search.brave.com/search?q={}";
+          DEFAULT = "https://lite.duckduckgo.com/lite/?q={}";
           nw = "https://wiki.nixos.org/w/index.php?search={}";
           np = "https://search.nixos.org/packages?channel=unstable&query={}";
           no = "https://search.nixos.org/options?channel=unstable&query={}";

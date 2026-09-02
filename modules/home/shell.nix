@@ -4,6 +4,7 @@
       packages = with pkgs; [
         git-remote-gcrypt
         tldr
+        devenv
       ];
       shellAliases = {
         grep = "rg";
@@ -20,7 +21,12 @@
     };
 
     programs = {
-      bash.enable = true;
+      bash = {
+        enable = true;
+        bashrcExtra = ''
+          eval "$(devenv hook bash)"
+        '';
+      };
       tmux = {
         enable = true;
         keyMode = "vi";
@@ -44,12 +50,6 @@
         tmux.enableShellIntegration = true;
       };
       lf.enable = true;
-      direnv = {
-        enable = true;
-        silent = true;
-        enableBashIntegration = true;
-        nix-direnv.enable = true;
-      };
       git = {
         enable = true;
         lfs.enable = true;

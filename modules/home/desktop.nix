@@ -10,6 +10,11 @@
       udiskie.enable = true;
     };
 
+    programs = {
+      cmus.enable = true;
+      pyradio.enable = true;
+    };
+
     home = {
       packages = with pkgs; [
         # System Apps
@@ -19,19 +24,21 @@
         hunspell
         hunspellDicts.en_US
         hyphenDicts.en_US
-
-        # Fonts
-        noto-fonts
-        caladea
-        carlito
-        dejavu_fonts
-        gentium
-        liberation_ttf
-        libertine
+        pdfsam-basic
       ];
     };
 
-    fonts.fontconfig.enable = true;
+    gtk = {
+      iconTheme = {
+        name = "Papirus-Dark";
+        package = pkgs.papirus-icon-theme;
+      };
+      cursorTheme = {
+        name = "Bibata-Modern-Amber";
+        package = pkgs.bibata-cursors;
+        size = 24;
+      };
+    };
 
     xdg = {
       userDirs.enable = true;

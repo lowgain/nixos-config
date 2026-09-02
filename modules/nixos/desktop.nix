@@ -20,6 +20,29 @@
       modprobe iwlwifi
     '';
 
+    fonts = {
+      enableDefaultPackages = true;
+      packages = with pkgs; [
+        noto-fonts
+        caladea
+        carlito
+        dejavu_fonts
+        gentium
+        liberation_ttf
+        libertine
+        atkinson-hyperlegible-next
+        nerd-fonts.atkynson-mono
+        noto-fonts-color-emoji
+      ];
+      fontconfig = {
+        enable = true;
+        serif = ["Atkinson Hyperlegible Next Regular"];
+        sansSerif = ["Atkinson Hyperlegible Next Regular"];
+        monospace = ["Atkinson Hyperlegible Mono Regular"];
+        emoji = ["Noto Color Emoji"];
+      };
+    };
+
     services = {
       pipewire = {
         enable = true;

@@ -25,11 +25,13 @@
     i18n.defaultLocale = "en_US.UTF-8";
 
     boot = {
-      kernelParams = ["quiet" "splash" "console=/dev/null"];
+      kernelParams = ["quiet" "rd.udev.log_level=3" "rd.systemd.show_status=auto"];
       blacklistedKernelModules = ["i2c_smbus" "i2c_piix4"]; # Silence boot errors
+      consoleLogLevel = 3;
+      initrd.verbose = false;
       plymouth.enable = true;
       loader = {
-        timeout = 1;
+        timeout = 0;
         systemd-boot = {
           enable = true;
           memtest86.enable = true;
@@ -77,6 +79,7 @@
     services = {
       openssh.enable = true;
       xserver.xkb.layout = "us";
+      fprintd.enable = true;
     };
 
     # This option defines the first version of NixOS you have installed on this particular machine,
