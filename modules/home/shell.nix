@@ -4,7 +4,6 @@
       packages = with pkgs; [
         git-remote-gcrypt
         tldr
-        devenv
       ];
       shellAliases = {
         grep = "rg";
