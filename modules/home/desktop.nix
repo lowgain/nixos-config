@@ -27,6 +27,13 @@
         pdfsam-basic
       ];
       file."icons/default".source = "${pkgs.bibata-cursors}/share/icons/Bibata-Modern-Amber";
+      pointerCursor = {
+        enable = true;
+        gtk.enable = true;
+        name = "Bibata-Modern-Amber";
+        package = pkgs.bibata-cursors;
+        size = 24;
+      };
     };
 
     gtk = {
@@ -34,11 +41,6 @@
       iconTheme = {
         name = "Papirus-Dark";
         package = pkgs.papirus-icon-theme;
-      };
-      cursorTheme = {
-        name = "Bibata-Modern-Amber";
-        package = pkgs.bibata-cursors;
-        size = 24;
       };
     };
 

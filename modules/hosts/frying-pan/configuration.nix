@@ -49,6 +49,7 @@
       sharedModules = [
         self.homeModules.niri
         self.homeModules.desktop
+        self.homeModules.gaming
         {
           programs.niri.settings = {
             outputs = {
