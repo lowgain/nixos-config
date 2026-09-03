@@ -1,7 +1,5 @@
 {
   flake.nixosModules.gaming = {pkgs, ...}: {
-    hardware.graphics.enable32Bit = true;
-
     programs = {
       gamemode.enable = true;
       steam.enable = true;

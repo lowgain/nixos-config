@@ -22,9 +22,6 @@
     programs = {
       bash = {
         enable = true;
-        bashrcExtra = ''
-          eval "$(devenv hook bash)"
-        '';
       };
       tmux = {
         enable = true;
@@ -43,6 +40,7 @@
       gh.enable = true;
       starship = {
         enable = true;
+        presets = ["nerd-font-symbols"];
       };
       fzf = {
         enable = true;

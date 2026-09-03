@@ -15,11 +15,6 @@
       polkit.enablePkexecWrapper = true;
     };
 
-    powerManagement.resumeCommands = ''
-      rmmod iwlwifi
-      modprobe iwlwifi
-    '';
-
     fonts = {
       enableDefaultPackages = true;
       packages = with pkgs; [
@@ -36,10 +31,12 @@
       ];
       fontconfig = {
         enable = true;
-        serif = ["Atkinson Hyperlegible Next Regular"];
-        sansSerif = ["Atkinson Hyperlegible Next Regular"];
-        monospace = ["Atkinson Hyperlegible Mono Regular"];
-        emoji = ["Noto Color Emoji"];
+        defaultFonts = {
+          serif = ["Atkinson Hyperlegible Next" "Noto Serif"];
+          sansSerif = ["Atkinson Hyperlegible Next" "Noto Sans"];
+          monospace = ["AtkynsonMono Nerd Font"];
+          emoji = ["Noto Color Emoji"];
+        };
       };
     };
 

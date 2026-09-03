@@ -28,17 +28,18 @@
       ];
     };
 
-    gtk = {
-      iconTheme = {
-        name = "Papirus-Dark";
-        package = pkgs.papirus-icon-theme;
-      };
-      cursorTheme = {
-        name = "Bibata-Modern-Amber";
-        package = pkgs.bibata-cursors;
-        size = 24;
-      };
-    };
+    # gtk = {
+    #   enable = true;
+    #   iconTheme = {
+    #     name = "Papirus-Dark";
+    #     package = pkgs.papirus-icon-theme;
+    #   };
+    #   cursorTheme = {
+    #     name = "Bibata-Modern-Amber";
+    #     package = pkgs.bibata-cursors;
+    #     size = 24;
+    #   };
+    # };
 
     xdg = {
       userDirs.enable = true;

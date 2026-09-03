@@ -8,7 +8,7 @@
         backdrop.enabled = true;
         shell = {
           app_icon_colorize = true;
-          font_family = "Atkinson Hyperlegible Next Regular";
+          font_family = "Atkinson Hyperlegible Next";
           setup_wizard_enabled = false;
           niri_overview_type_to_launch_enabled = true;
           polkit_agent = true;
@@ -18,7 +18,7 @@
           };
         };
         theme = {
-          mode = "auto";
+          mode = "dark";
           source = "community";
           community_palette = "Everforest Alt";
           templates = {
@@ -30,7 +30,6 @@
               "prismlauncher"
               "steam"
               "fastfetch"
-              "papirus-icons"
               "bat"
               "fzf"
               "lazygit"

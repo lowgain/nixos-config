@@ -85,10 +85,5 @@
         };
       };
     };
-    stylix = {
-      targets.nvf = {
-        enable = false;
-      };
-    };
   };
 }

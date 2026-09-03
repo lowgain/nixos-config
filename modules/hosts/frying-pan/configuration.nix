@@ -16,7 +16,6 @@
       self.nixosModules.nix
       self.nixosModules.shell
       self.nixosModules.desktop
-      self.nixosModules.stylix
       self.nixosModules.nvf
       self.nixosModules.gaming
     ];
