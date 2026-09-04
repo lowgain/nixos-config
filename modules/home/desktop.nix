@@ -13,6 +13,10 @@
     programs = {
       cmus.enable = true;
       pyradio.enable = true;
+      libreoffice = {
+        enable = true;
+        package = pkgs.libreoffice-qt;
+      };
     };
 
     home = {
@@ -20,7 +24,6 @@
         # System Apps
         simple-scan
         qbittorrent
-        libreoffice
         hunspell
         hunspellDicts.en_US
         hyphenDicts.en_US
