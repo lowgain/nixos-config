@@ -27,13 +27,11 @@
 
   nixConfig = {
     extra-substituters = [
-      "https://cache.nixos.org"
       "https://noctalia.cachix.org"
       "https://nvf.cachix.org"
       "https://niri-epireyn.cachix.org"
     ];
     extra-trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
       "nvf.cachix.org-1:GMQWiUhZ6ux9D5CvFFMwnc2nFrUHTeGaXRlVBXo+naI="
       "niri-epireyn.cachix.org-1:tlVyFN7CtsDT+ZcLPS+ekFWeT1X6X4OqvWqbBMyIzFA="
