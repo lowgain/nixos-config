@@ -11,16 +11,15 @@
     imports = [
       inputs.nixos-wsl.nixosModules.default
       self.nixosModules.nix
-      self.nixosModules.stylix
-      self.nixosModules.myHomeManager
+      self.nixosModules.HomeManager
       self.nixosModules.lowgainModule
-      self.nixosModules.nvf
+      self.nixosModules.neovim
+      self.nixosModules.shell
     ];
 
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
     time.timeZone = "America/Nassau";
-
     networking.hostName = "wsl";
 
     wsl = {
@@ -30,13 +29,6 @@
       usbip.enable = true;
       useWindowsDriver = true;
       ssh-agent.enable = true;
-    };
-
-    home-manager = {
-      sharedModules = [
-        self.homeModules.shell
-      ];
-      users.lowgain = self.homeModules.lowgainModule;
     };
 
     # This value determines the NixOS release from which the default

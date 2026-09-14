@@ -1,0 +1,7 @@
+keys:
+  - &lowgain age1ggj2sk4ce77t7slcaahxa84u0ng7x9yu9w5aqepplrmfxmu7vg2sn990rw
+creation_rules:
+  - path_regex: secrets/secrets.yaml$
+    key_groups:
+      - age:
+          - *lowgain
