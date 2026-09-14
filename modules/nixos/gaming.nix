@@ -1,8 +1,8 @@
 {self, ...}: {
   flake.nixosModules.gaming = {
+    pkgs,
     lib,
     options,
-    pkgs,
     ...
   }: {
     config = lib.mkMerge [

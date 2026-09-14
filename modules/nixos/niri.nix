@@ -1,14 +1,12 @@
 {self, ...}: {
   flake.nixosModules.niri = {
     lib,
-    options,
     pkgs,
+    options,
     ...
   }: {
     config = lib.mkMerge [
       {
-        # imports = [ self.nixosModules.regreet ];
-
         hardware.graphics.enable = lib.mkDefault true;
 
         environment = {
@@ -18,8 +16,13 @@
 
         security.polkit.enable = true;
 
+        services.logind.settings.Login = {
+          HandleLidSwitch = "ignore";
+          HandleLidSwitchExternalPower = "ignore";
+          HandleLidSwitchDocked = "ignore";
+        };
+
         programs = {
-          regreet.enable = true;
           dconf.enable = true;
           niri.enable = true;
         };

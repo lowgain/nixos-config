@@ -1,5 +1,5 @@
 {
-  flake.homeModules.neovim = {pkgs, ...}: {
+  flake.homeModules.lowgainNeovim = {pkgs, lib, ...}: {
     home.sessionVariables.EDITOR = "nvim";
     programs.neovim = {
       enable = true;
@@ -13,25 +13,31 @@
       ];
       initLua = builtins.readFile ./nvim/init.lua;
       plugins = with pkgs.vimPlugins; [
-        nvim-lspconfig
-        (nvim-treesitter.withPlugins (p: [
-          p.tree-sitter-nix
-          p.tree-sitter-vim
-          p.tree-sitter-lua
-          p.tree-sitter-bash
-        ]))
-        vim-nix
+        {
+          plugin = nvim-lspconfig;
+          type = "lua";
+          config = builtins.readFile ./nvim/lua/plugins/lsp.lua;
+        }
+        {
+          plugin = nvim-treesitter.withAllGrammars;
+          type = "lua";
+          config = builtins.readFile ./nvim/lua/plugins/treesitter.lua;
+        }
         {
           plugin = mini-pick;
+          type = "lua";
           config = ''require("mini.pick").setup()'';
         }
+        vim-nix
+        {
+          plugin = everforest;
+          type = "lua";
+          config = ''
+            vim.cmd.colorscheme("everforest")
+            vim.g.everforest_enable_italic = true
+          '';
+        }
       ];
-    };
-    xdg.configFile = {
-      "nvim/lua" = {
-        source = ./nvim/lua;
-        recursive = true;
-      };
     };
   };
 }

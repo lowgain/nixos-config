@@ -1,6 +1,8 @@
-require("nvim-treesitter").setup {
-  ensure_installed = {},
-  auto_install = false,
-  highlight = { enable = true },
-  indent = { enable = true },
-}
+require("nvim-treesitter").setup()
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { '<filetype>' },
+  callback = function()
+    vim.treesitter.start()
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  end,
+})

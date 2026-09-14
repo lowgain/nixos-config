@@ -12,10 +12,12 @@
       self.nixosModules.HomeManager
       self.nixosModules.lowgainModule
       self.nixosModules.nix
+      self.nixosModules.plymouth
       self.nixosModules.desktop
       self.nixosModules.gaming
       self.nixosModules.niri
-      self.nixosModules.plymouth
+      self.nixosModules.noctalia
+      # self.nixosModules.noctalia-greeter
     ];
 
     hardware = {

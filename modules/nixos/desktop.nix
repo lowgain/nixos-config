@@ -1,8 +1,8 @@
 {self, ...}: {
   flake.nixosModules.desktop = {
+    pkgs,
     lib,
     options,
-    pkgs,
     ...
   }: {
     imports = [self.nixosModules.neovim];
@@ -28,6 +28,9 @@
             gentium
             liberation_ttf
             libertine
+            atkinson-hyperlegible-next
+            nerd-fonts.atkynson-mono
+            noto-fonts-color-emoji
           ];
           enableDefaultPackages = true;
           fontDir.enable = true;
@@ -44,12 +47,9 @@
           ipp-usb.enable = true;
           libinput.enable = true;
           udisks2.enable = true;
-          upower.enable = true;
-          power-profiles-daemon.enable = true;
         };
 
         programs = {
-          chromium.enable = true;
           gnupg.agent = {
             enable = true;
             enableSSHSupport = true;
