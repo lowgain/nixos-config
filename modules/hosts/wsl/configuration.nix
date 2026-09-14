@@ -17,7 +17,12 @@
       self.nixosModules.shell
     ];
 
-    nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+    hardware = {
+      facter = {
+        enable = true;
+        reportPath = ./facter.json;
+      };
+    };
 
     time.timeZone = "America/Nassau";
     networking.hostName = "wsl";

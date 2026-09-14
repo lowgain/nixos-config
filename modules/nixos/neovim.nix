@@ -32,7 +32,7 @@
         };
       }
       (lib.optionalAttrs (options ? home-manager) {
-        home-manager.sharedModules = [self.homeModules.neovim];
+        home-manager.sharedModules = [self.homeModules.lowgainNeovim];
       })
     ];
   };

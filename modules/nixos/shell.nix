@@ -5,7 +5,7 @@
     ...
   }: {
     config = lib.optionalAttrs (options ? home-manager) {
-      home-modules.sharedModules = [self.homeModules.shell];
+      home-manager.sharedModules = [self.homeModules.shell];
     };
   };
 }
