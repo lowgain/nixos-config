@@ -1,5 +1,13 @@
-{self, inputs, ...}: {
-  flake.nixosModules.noctalia = {lib, options, ...}: {
+{
+  self,
+  inputs,
+  ...
+}: {
+  flake.nixosModules.noctalia = {
+    lib,
+    options,
+    ...
+  }: {
     imports = [
       "${inputs.nixpkgs-unstable}/nixos/modules/programs/wayland/noctalia.nix"
     ];

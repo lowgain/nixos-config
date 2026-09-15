@@ -11,7 +11,12 @@
     };
   };
 
-  flake.homeModules.lowgainModule = {lib, config, options, ...}: {
+  flake.homeModules.lowgainModule = {
+    lib,
+    config,
+    options,
+    ...
+  }: {
     imports = [
       self.homeModules.lowgainNeovim
     ];

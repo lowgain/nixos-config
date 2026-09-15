@@ -1,5 +1,9 @@
 {
-  flake.homeModules.lowgainNeovim = {pkgs, lib, ...}: {
+  flake.homeModules.lowgainNeovim = {
+    pkgs,
+    lib,
+    ...
+  }: {
     home.sessionVariables.EDITOR = "nvim";
     programs.neovim = {
       enable = true;

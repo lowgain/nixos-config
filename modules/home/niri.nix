@@ -1,11 +1,5 @@
-{
-  inputs,
-  ...
-}: {
-  flake.homeModules.niri = {
-    lib,
-    ...
-  }: {
+{inputs, ...}: {
+  flake.homeModules.niri = {lib, ...}: {
     imports = [
       "${inputs.home-manager-unstable}/modules/services/window-managers/niri.nix"
     ];

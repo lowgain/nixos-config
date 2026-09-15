@@ -84,13 +84,13 @@
           window-rule._children = [
             {match._props = {app-id = "dev.noctalia.Noctalia";};}
             {open-floating = true;}
-            {default-column-width = { fixed = 800; }; }
-            {default-window-height = { fixed = 600; }; }
+            {default-column-width = {fixed = 800;};}
+            {default-window-height = {fixed = 600;};}
           ];
         }
         {
           layer-rule._children = [
-            {match._props = {namespace="^noctalia-backdrop";};}
+            {match._props = {namespace = "^noctalia-backdrop";};}
             {place-within-backdrop = true;}
           ];
         }
