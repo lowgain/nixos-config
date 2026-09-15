@@ -38,7 +38,9 @@
           "x-scheme-handler/unknown" = "org.qutebrowser.qutebrowser.desktop";
         };
       }
-      # programs.noctalia.settings.wallpaper.default.path = "/home/lowgain/Pictures/Walls/picture-shrine-green.jpg";
+      (lib.mkIf (config.programs.noctalia.enable) {
+        programs.noctalia.settings.wallpaper.default.path = "/home/lowgain/Pictures/Walls/picture-shrine-green.jpg";
+      })
     ];
   };
 }

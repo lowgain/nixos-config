@@ -10,7 +10,17 @@
       "${inputs.home-manager-unstable}/modules/services/window-managers/niri.nix"
     ];
 
-    programs.foot.enable = true;
+    programs.foot = {
+      enable = true;
+      settings = {
+        main = {
+          pad = "15x15";
+          font = "monospace:size=14";
+        };
+        colors-dark.alpha = 0.8;
+        colors-light.alpha = 0.8;
+      };
+    };
 
     services = {
       polkit-gnome.enable = true;
@@ -24,10 +34,8 @@
         input.focus-follows-mouse = {};
         prefer-no-csd = {};
         binds = {
-          "Mod+T" = {
-            _props.hotkey-overlay-title = "Open a Terminal";
-            spawn = ["foot"];
-          };
+          "Mod+Return".spawn = ["foot"];
+          "Mod+T".spawn = ["foot"];
         };
       };
     };

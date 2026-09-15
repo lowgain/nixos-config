@@ -19,7 +19,12 @@
         }
       );
       config = {
-        # ytdl-format = "bestvideo[height<=?1080][vcodec^=av0]+bestaudio";
+        ytdl-format = "bestvideo[height<=?1080][vcodec^=av0]+bestaudio";
+      };
+      profiles = {
+        pyradio = {
+          volume = 100;
+        };
       };
     };
   };

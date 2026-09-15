@@ -17,7 +17,7 @@
       self.nixosModules.gaming
       self.nixosModules.niri
       self.nixosModules.noctalia
-      # self.nixosModules.noctalia-greeter
+      self.nixosModules.noctalia-greeter
     ];
 
     hardware = {
