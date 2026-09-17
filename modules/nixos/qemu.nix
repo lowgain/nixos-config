@@ -1,5 +1,6 @@
 {
   flake.nixosModules.qemu = {pkgs, ...}: {
+    systemd.tmpfiles.rules = ["L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware"];
     virtualisation = {
       libvirtd = {
         enable = true;
@@ -9,16 +10,18 @@
     };
 
     users.groups = {
-      libvirtd.members = [ "lowgain" ];
-      kvm.members = [ "lowgain" ];
+      libvirtd.members = ["lowgain"];
+      kvm.members = ["lowgain"];
     };
 
-    networking.firewall.trustedInterfaces = [ "virbr0" ];
+    networking.firewall.trustedInterfaces = ["virbr0"];
 
     environment.systemPackages = with pkgs; [
       gnome-boxes # GUI Frontend
       dnsmasq # Enables networking
       phodav # File sharing
+      qemu
+      quickemu
     ];
   };
 }

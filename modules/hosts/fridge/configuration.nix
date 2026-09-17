@@ -1,16 +1,27 @@
-{inputs, self, ...}: {
+{
+  inputs,
+  self,
+  ...
+}: {
   flake.nixosConfigurations.fridge = inputs.nixpkgs.lib.nixosSystem {
     modules = [self.nixosModules.fridgeModule];
   };
 
-  flake.nixosModules.fridgeModule = { pkgs, ... }: {
+  flake.nixosModules.fridgeModule = {pkgs, ...}: {
     imports = [
-      self.nixosModules.fridgeDiskfig
+      self.diskoConfigurations.fridge
       self.nixosModules.fridgeWare
+      inputs.disko.nixosModules.disko
     ];
 
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
+
+    virtualisation.vmVariant = {
+      virtualisation = {
+        diskSize = 40 * 1024;
+      };
+    };
 
     networking.hostName = "fridge"; # Define your hostname.
     networking.networkmanager.enable = true;
@@ -21,7 +32,7 @@
     users.users.lowgain = {
       isNormalUser = true;
       initialPassword = "Lowgain";
-      extraGroups = [ "wheel" ];
+      extraGroups = ["wheel"];
     };
 
     environment.systemPackages = with pkgs; [
@@ -47,6 +58,5 @@
     #
     # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
     system.stateVersion = "26.05"; # Did you read the comment?
-
   };
 }

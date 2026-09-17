@@ -76,7 +76,7 @@
       _children = [
         {
           window-rule._children = [
-            {geometry-corner-radius = 20;}
+            {geometry-corner-radius = 10;}
             {clip-to-geometry = true;}
           ];
         }

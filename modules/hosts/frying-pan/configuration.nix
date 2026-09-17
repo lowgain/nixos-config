@@ -21,11 +21,9 @@
       self.nixosModules.qemu
     ];
 
-    hardware = {
-      facter = {
-        enable = true;
-        reportPath = ./facter.json;
-      };
+    hardware.facter = {
+      enable = true;
+      reportPath = ./facter.json;
     };
 
     fileSystems = {
@@ -63,7 +61,10 @@
       networkmanager.enable = true;
     };
 
-    services.openssh.enable = true;
+    services = {
+      openssh.enable = true;
+      fwupd.enable = true;
+    };
 
     # This option defines the first version of NixOS you have installed on this particular machine,
     # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
