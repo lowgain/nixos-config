@@ -37,13 +37,30 @@
         };
 
         services = {
+          avahi = {
+            enable = true;
+            nssmdns4 = true;
+            nssmdns6 = true;
+            openFirewall = true;
+          };
           pipewire = {
             enable = true;
             alsa.enable = true;
             alsa.support32Bit = true;
             pulse.enable = true;
           };
-          printing.enable = true;
+          printing = {
+            enable = true;
+            drivers = with pkgs; [
+              cups-filters
+              cups-browsed
+              gutenprint
+              # hplip # HP Drivers
+              # brgenml1lpr # Brother drivers
+              # brgenml1cupswrapper # Brother drivers
+              # epson-escpr2 # Brother drivers
+            ];
+          };
           ipp-usb.enable = true;
           libinput.enable = true;
           udisks2.enable = true;

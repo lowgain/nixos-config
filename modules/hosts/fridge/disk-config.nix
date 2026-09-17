@@ -1,14 +1,10 @@
-{self, ...}: {
+{
   flake.diskoConfigurations.fridge = {
-    modules = [self.nixosModules.fridgeDiskConfig];
-  };
-
-  flake.nixosModules.fridgeDiskConfig = {
     disko.devices = {
       disk = {
         main = {
           type = "disk";
-          device = "/dev/nvme0n1";
+          device = "/dev/vda";
           content = {
             type = "gpt";
             partitions = {
@@ -19,7 +15,7 @@
                   type = "filesystem";
                   format = "vfat";
                   mountpoint = "/boot";
-                  mountOptions = ["umask=0077"];
+                  mountOptions = [ "umask=0077" ];
                 };
               };
               luks = {
@@ -27,17 +23,16 @@
                 content = {
                   type = "luks";
                   name = "crypted";
-                  passwordFile = "/tmp/secret.key";
-                  settings = {
-                    allowDiscards = true;
-                  };
+                  passwordFile = "/tmp/secret.key"; # Interactive
+                  settings.allowDiscards = true;
                   content = {
                     type = "btrfs";
-                    extraArgs = ["-f"];
+                    extraArgs = [ "-f" ];
                     subvolumes = {
                       "/root" = {
                         mountpoint = "/";
                         mountOptions = [
+                          "subvol=root"
                           "compress=zstd"
                           "noatime"
                         ];
@@ -45,6 +40,7 @@
                       "/home" = {
                         mountpoint = "/home";
                         mountOptions = [
+                          "subvol=home"
                           "compress=zstd"
                           "noatime"
                         ];
@@ -52,13 +48,14 @@
                       "/nix" = {
                         mountpoint = "/nix";
                         mountOptions = [
+                          "subvol=nix"
                           "compress=zstd"
                           "noatime"
                         ];
                       };
                       "/swap" = {
                         mountpoint = "/.swapvol";
-                        swap.swapfile.size = "16G";
+                        swap.swapfile.size = "3G";
                       };
                     };
                   };

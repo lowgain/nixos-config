@@ -23,7 +23,7 @@
       };
       profiles = {
         pyradio = {
-          volume = 100;
+          volume = "100";
         };
       };
     };
