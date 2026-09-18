@@ -20,9 +20,11 @@
             vim.o.signcolumn = "yes"
             vim.o.wrap = false
             vim.o.swapfile = false
-            vim.o.autoindent = true
             vim.o.smartindent = true
             vim.o.winborder = "rounded"
+            vim.o.scrolloff = 2
+            vim.o.sidescroll = 1
+            vim.o.sidescrolloff = 2
 
             vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
             vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE", ctermbg = "NONE" })

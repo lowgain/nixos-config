@@ -9,16 +9,19 @@
 
   flake.nixosModules.fryingPanModule = {
     imports = [
-      self.nixosModules.HomeManager
-      self.nixosModules.lowgainModule
+      inputs.disko.nixosModules.disko
+      self.diskoConfigurations.fryingPan
       self.nixosModules.nix
       self.nixosModules.plymouth
-      self.nixosModules.desktop
-      self.nixosModules.gaming
-      self.nixosModules.niri
-      self.nixosModules.noctalia
-      self.nixosModules.noctalia-greeter
-      self.nixosModules.qemu
+      self.nixosModules.preservation
+      self.nixosModules.neovim
+      # self.nixosModules.HomeManager
+      self.nixosModules.lowgainModule
+      # self.nixosModules.desktop
+      # self.nixosModules.gaming
+      # self.nixosModules.niri
+      # self.nixosModules.noctalia
+      # self.nixosModules.noctalia-greeter
     ];
 
     hardware.facter = {
@@ -26,27 +29,24 @@
       reportPath = ./facter.json;
     };
 
-    fileSystems = {
-      "/" = {
-        device = "/dev/disk/by-uuid/3d3e5b01-bb5e-4025-b622-b38585ef5f36";
-        fsType = "ext4";
-      };
-      "/boot" = {
-        device = "/dev/disk/by-uuid/53B6-D886";
-        fsType = "vfat";
-        options = ["fmask=0077" "dmask=0077"];
-      };
-    };
+    # fileSystems = {
+    #   "/" = {
+    #     device = "/dev/disk/by-uuid/3d3e5b01-bb5e-4025-b622-b38585ef5f36";
+    #     fsType = "ext4";
+    #   };
+    #   "/boot" = {
+    #     device = "/dev/disk/by-uuid/53B6-D886";
+    #     fsType = "vfat";
+    #     options = ["fmask=0077" "dmask=0077"];
+    #   };
+    # };
 
-    swapDevices = [
-      {device = "/dev/disk/by-uuid/b0e652c7-6c0f-47be-aa8a-b414e77314c8";}
-    ];
-
-    time.timeZone = "America/Nassau";
-    i18n.defaultLocale = "en_US.UTF-8";
+    # swapDevices = [
+    #   {device = "/dev/disk/by-uuid/b0e652c7-6c0f-47be-aa8a-b414e77314c8";}
+    # ];
 
     boot = {
-      blacklistedKernelModules = ["i2c_smbus" "i2c_piix4"]; # Silence boot errors
+      # blacklistedKernelModules = ["i2c_smbus" "i2c_piix4"]; # Silence boot errors
       loader = {
         systemd-boot = {
           enable = true;
@@ -57,10 +57,18 @@
       };
     };
 
+    time.timeZone = "America/Nassau";
+    i18n.defaultLocale = "en_US.UTF-8";
+
     networking = {
       hostName = "frying-pan";
       networkmanager.enable = true;
     };
+
+    environment.systemPackages = with pkgs; [
+      vim
+      wget
+    ];
 
     services = {
       openssh.enable = true;
