@@ -43,6 +43,7 @@
     ];
 
     time.timeZone = "America/Nassau";
+    i18n.defaultLocale = "en_US.UTF-8";
 
     boot = {
       blacklistedKernelModules = ["i2c_smbus" "i2c_piix4"]; # Silence boot errors

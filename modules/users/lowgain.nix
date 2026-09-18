@@ -14,7 +14,6 @@
   flake.homeModules.lowgainModule = {
     lib,
     config,
-    options,
     ...
   }: {
     imports = [

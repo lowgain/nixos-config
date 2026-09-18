@@ -9,36 +9,46 @@
 
   flake.nixosModules.fridgeModule = {pkgs, ...}: {
     imports = [
-      self.diskoConfigurations.fridge
-      self.nixosModules.fridgeWare
       inputs.disko.nixosModules.disko
+      self.diskoConfigurations.fridge
+      self.nixosModules.lowgainModule
+      self.nixosModules.preservation
     ];
 
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
+    # Temporary
+    nix.settings.experimental-features = ["nix-command" "flakes"];
 
-    virtualisation.vmVariant = {
-      virtualisation = {
-        diskSize = 40 * 1024;
-      };
+    hardware.facter = {
+      enable = true;
+      reportPath = ./facter.json;
     };
 
-    networking.hostName = "fridge"; # Define your hostname.
-    networking.networkmanager.enable = true;
+    boot.loader = {
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 5;
+        memtest86.enable = true;
+      };
+      efi.canTouchEfiVariables = true;
+    };
 
     time.timeZone = "America/Nassau";
     i18n.defaultLocale = "en_US.UTF-8";
 
-    users.users.lowgain = {
-      isNormalUser = true;
-      initialPassword = "Lowgain";
-      extraGroups = ["wheel"];
+    networking = {
+      hostName = "fridge";
+      networkmanager.enable = true;
     };
 
     environment.systemPackages = with pkgs; [
-      neovim
+      vim
       wget
     ];
+
+    services = {
+      openssh.enable = true;
+      networkmanager.enable = true;
+    };
 
     # This option defines the first version of NixOS you have installed on this particular machine,
     # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
