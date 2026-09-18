@@ -24,6 +24,7 @@
       efiSupport = lib.mkDefault true;
       efiInstallAsRemovable = lib.mkDefault true;
     };
+
     system.stateVersion = "26.05";
     users.users.lowgain = {
       isNormalUser = true;

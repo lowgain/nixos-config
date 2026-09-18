@@ -23,7 +23,6 @@
             type = "gpt";
             partitions = {
               esp = {
-                name = "ESP";
                 type = "EF00";
                 size = "512M";
                 content = {
@@ -33,24 +32,29 @@
                   mountOptions = ["umask=0077"];
                 };
               };
-              root = {
-                name = "root";
+              luks = {
                 size = "100%";
                 content = {
-                  type = "btrfs";
-                  extraArgs = ["-L" "nixos" "-f"];
-                  subvolumes = {
-                    "/persistent" = {
-                      mountOptions = ["subvol=persistent" "noatime" "compress=zstd"];
-                      mountpoint = "/persistent";
-                    };
-                    "/nix" = {
-                      mountOptions = ["subvol=nix" "noatime" "compress=zstd"];
-                      mountpoint = "/nix";
-                    };
-                    "/swap" = {
-                      mountpoint = "/.swapvol";
-                      swap.swapfile.size = "2G";
+                  type = "luks";
+                  name = "crypted";
+                  passwordFile = "/tmp/secret.key";
+                  settings.allowDiscards = true;
+                  content = {
+                    type = "btrfs";
+                    extraArgs = ["-L" "nixos" "-f"];
+                    subvolumes = {
+                      "/persistent" = {
+                        mountOptions = ["subvol=persistent" "noatime" "compress=zstd"];
+                        mountpoint = "/persistent";
+                      };
+                      "/nix" = {
+                        mountOptions = ["subvol=nix" "noatime" "compress=zstd"];
+                        mountpoint = "/nix";
+                      };
+                      "/swap" = {
+                        mountpoint = "/.swapvol";
+                        swap.swapfile.size = "2G";
+                      };
                     };
                   };
                 };
