@@ -5,10 +5,11 @@
       enable = true;
       settings = {
         shell = {
-          font = "Atkinson Hyperlegible Next";
-          settings_show_advanced = true;
+          font_family = "Atkinson Hyperlegible Next";
+          setup_wizard_enabled = false;
           niri_overview_type_to_launch_enabled = true;
-          greeter_sync.auto_sync = true;
+          settings_show_advanced = true;
+          time_format = "{:%l:%M %P}";
           panel = {
             session_placement = "floating";
             session_position = "center";
@@ -17,8 +18,10 @@
         theme = {
           mode = "dark";
           source = "community";
-          community = "everforest";
+          community_palette = "Everforest";
           templates = {
+            enable_builtin_templates = true;
+            enable_community_templates = true;
             builtin_ids = [
               "btop"
               "foot"
@@ -34,7 +37,6 @@
               "prismlauncher"
               "steam"
               "fastfetch"
-              "papirus-icons"
               "bat"
               "fzf"
               "lazygit"
@@ -43,6 +45,7 @@
             ];
           };
         };
+        nightlight.enabled = true;
         wallpaper = {
           enabled = true;
           transition = ["fade"];
@@ -64,11 +67,13 @@
             "media"
           ];
         };
+        weather.unit = "imperial";
         location = {
           custom_schedule = true;
           sunrise = "07:30";
           sunset = "20:30";
         };
+        widget.clock.format = "{:%l:%M %P}";
       };
     };
     wayland.windowManager.niri.settings = {

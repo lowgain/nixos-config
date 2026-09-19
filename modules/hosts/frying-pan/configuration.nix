@@ -15,13 +15,12 @@
       self.nixosModules.plymouth
       self.nixosModules.preservation
       self.nixosModules.neovim
-      # self.nixosModules.HomeManager
+      self.nixosModules.HomeManager
       self.nixosModules.lowgainModule
-      # self.nixosModules.desktop
+      self.nixosModules.desktop
       # self.nixosModules.gaming
-      # self.nixosModules.niri
-      # self.nixosModules.noctalia
-      # self.nixosModules.noctalia-greeter
+      self.nixosModules.niri
+      self.nixosModules.noctalia
     ];
 
     hardware.facter = {
@@ -54,6 +53,7 @@
     ];
 
     services = {
+      getty.autologinUser = "lowgain";
       openssh.enable = true;
       fwupd.enable = true;
     };

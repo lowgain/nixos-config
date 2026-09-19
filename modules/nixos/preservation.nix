@@ -64,26 +64,29 @@
       };
     };
 
-    systemd.tmpfiles.settings.preservation = {
-      "/home/lowgain/.config".d = {
-        user = "lowgain";
-        group = "users";
-        mode = "0755";
-      };
-      "/home/lowgain/.local".d = {
-        user = "lowgain";
-        group = "users";
-        mode = "0755";
-      };
-      "/home/lowgain/.local/share".d = {
-        user = "lowgain";
-        group = "users";
-        mode = "0755";
-      };
-      "/home/lowgain/.local/state".d = {
-        user = "lowgain";
-        group = "users";
-        mode = "0755";
+    systemd = {
+      suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
+      tmpfiles.settings.preservation = {
+        "/home/lowgain/.config".d = {
+          user = "lowgain";
+          group = "users";
+          mode = "0755";
+        };
+        "/home/lowgain/.local".d = {
+          user = "lowgain";
+          group = "users";
+          mode = "0755";
+        };
+        "/home/lowgain/.local/share".d = {
+          user = "lowgain";
+          group = "users";
+          mode = "0755";
+        };
+        "/home/lowgain/.local/state".d = {
+          user = "lowgain";
+          group = "users";
+          mode = "0755";
+        };
       };
     };
   };
