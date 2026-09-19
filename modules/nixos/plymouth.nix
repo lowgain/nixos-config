@@ -6,7 +6,7 @@
         theme = "circle_hud";
         themePackages = with pkgs; [
           (adi1090x-plymouth-themes.override {
-            selected_themes = [ "circle_hud" ];
+            selected_themes = ["circle_hud"];
           })
         ];
       };

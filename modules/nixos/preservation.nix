@@ -68,7 +68,7 @@
     };
 
     systemd = {
-      suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
+      suppressedSystemUnits = ["systemd-machine-id-commit.service"];
       tmpfiles.settings.preservation = {
         "/home/lowgain/.config".d = {
           user = "lowgain";
