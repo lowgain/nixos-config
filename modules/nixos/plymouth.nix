@@ -1,7 +1,15 @@
 {
-  flake.nixosModules.plymouth = {
+  flake.nixosModules.plymouth = {pkgs, ...}: {
     boot = {
-      plymouth.enable = true;
+      plymouth = {
+        enable = true;
+        theme = "circle_hud";
+        themePackages = with pkgs; [
+          (adi1090x-plymouth-themes.override {
+            selected_themes = [ "circle_hud" ];
+          })
+        ];
+      };
 
       # Enable "Silent boot"
       consoleLogLevel = 3;

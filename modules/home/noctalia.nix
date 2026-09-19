@@ -19,31 +19,6 @@
           mode = "dark";
           source = "community";
           community_palette = "Everforest";
-          templates = {
-            enable_builtin_templates = true;
-            enable_community_templates = true;
-            builtin_ids = [
-              "btop"
-              "foot"
-              "gtk3"
-              "gtk4"
-              "niri"
-              "starship"
-            ];
-            community_ids = [
-              "qutebrowser"
-              "neovim"
-              "heroiclauncher"
-              "prismlauncher"
-              "steam"
-              "fastfetch"
-              "bat"
-              "fzf"
-              "lazygit"
-              "tmux"
-              "yazi"
-            ];
-          };
         };
         nightlight.enabled = true;
         wallpaper = {

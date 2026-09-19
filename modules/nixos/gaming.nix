@@ -15,7 +15,8 @@
         environment.systemPackages = with pkgs; [
           heroic
           lutris
-          protonup-qt
+          protonup-ng
+          proton-ge-bin
         ];
       }
       (lib.optionalAttrs (options ? home-manager) {

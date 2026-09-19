@@ -1,12 +1,12 @@
-{
+{self, ...}: {
   flake.homeModules.desktop = {pkgs, ...}: {
+    imports = [ self.homeModules.pyradio ];
     services = {
       udiskie.enable = true;
     };
 
     programs = {
       cmus.enable = true;
-      pyradio.enable = true;
       onlyoffice.enable = true;
     };
 

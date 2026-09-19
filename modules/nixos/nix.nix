@@ -12,18 +12,21 @@
     };
 
     nix = {
+      nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
       settings = {
         experimental-features = ["nix-command" "flakes"];
-        trusted-users = ["@wheel"];
+        trusted-users = ["root" "@wheel"];
       };
     };
 
-    programs.nh = {
-      enable = true;
-      flake = "/home/lowgain/Dev/nixos-config";
-      clean = {
+    programs = {
+      direnv.enable = true;
+      nh = {
         enable = true;
-        extraArgs = "--keep 3 --no-direnv --optimise";
+        clean = {
+          enable = true;
+          extraArgs = "--keep 3 --no-direnv --optimise";
+        };
       };
     };
   };

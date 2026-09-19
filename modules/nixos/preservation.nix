@@ -7,6 +7,7 @@
       preserveAt."/persistent" = {
         directories = [
           "/etc/secureboot"
+          "/etc/NetworkManager"
           "/var/lib/bluetooth"
           "/var/lib/fprint"
           "/var/lib/fwupd"
@@ -49,7 +50,9 @@
               ".local/state/nvim"
               ".local/state/wireplumber"
               ".local/state/nix"
+              ".local/state/noctalia"
               ".local/share/direnv"
+              ".local/share/qutebrowser"
               ".config/chromium/Default"
               "Downloads"
               "Documents"

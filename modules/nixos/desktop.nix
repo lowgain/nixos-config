@@ -5,7 +5,6 @@
     options,
     ...
   }: {
-    imports = [self.nixosModules.neovim];
     config = lib.mkMerge [
       {
         hardware.sane.enable = true;
@@ -64,6 +63,7 @@
           ipp-usb.enable = true;
           libinput.enable = true;
           udisks2.enable = true;
+          thermald.enable = true;
         };
 
         programs = {

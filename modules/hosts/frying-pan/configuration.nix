@@ -18,7 +18,7 @@
       self.nixosModules.HomeManager
       self.nixosModules.lowgainModule
       self.nixosModules.desktop
-      # self.nixosModules.gaming
+      self.nixosModules.gaming
       self.nixosModules.niri
       self.nixosModules.noctalia
     ];
@@ -32,7 +32,6 @@
       loader = {
         systemd-boot = {
           enable = true;
-          memtest86.enable = true;
           configurationLimit = 5;
         };
         efi.canTouchEfiVariables = true;
@@ -40,7 +39,6 @@
     };
 
     time.timeZone = "America/Nassau";
-    i18n.defaultLocale = "en_US.UTF-8";
 
     networking = {
       hostName = "frying-pan";
@@ -53,7 +51,16 @@
     ];
 
     services = {
-      getty.autologinUser = "lowgain";
+      greetd = {
+        enable = true;
+        settings = rec {
+          initial_session = {
+            command = "${pkgs.niri}/bin/niri-session";
+            user = "lowgain";
+          };
+          default_session = initial_session;
+        };
+      };
       openssh.enable = true;
       fwupd.enable = true;
     };
