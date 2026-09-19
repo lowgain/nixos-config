@@ -50,6 +50,7 @@
               ".local/state/wireplumber"
               ".local/state/nix"
               ".local/share/direnv"
+              ".config/chromium/Default"
               "Downloads"
               "Documents"
               "Dev"
