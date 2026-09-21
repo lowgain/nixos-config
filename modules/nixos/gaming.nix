@@ -16,7 +16,6 @@
           heroic
           lutris
           protonup-ng
-          proton-ge-bin
         ];
       }
       (lib.optionalAttrs (options ? home-manager) {
