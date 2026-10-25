@@ -22,6 +22,7 @@
       self.nixosModules.niri
       self.nixosModules.noctalia
       self.nixosModules.qemu
+      self.nixosModules.flatpak
     ];
 
     hardware.facter = {
@@ -43,7 +44,11 @@
 
     networking = {
       hostName = "frying-pan";
-      networkmanager.enable = true;
+      networkmanager = {
+        enable = true;
+        dns = "systemd-resolved";
+      };
+      resolvconf.enable = false;
     };
 
     environment.systemPackages = with pkgs; [
@@ -64,6 +69,7 @@
       };
       openssh.enable = true;
       fwupd.enable = true;
+      resolved.enable = true;
     };
 
     # This option defines the first version of NixOS you have installed on this particular machine,
