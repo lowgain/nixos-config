@@ -16,6 +16,7 @@
           "/var/lib/systemd/coredump"
           "/var/lib/systemd/rfkill"
           "/var/lib/systemd/timers"
+          "/var/lib/flatpak"
           "/var/log"
           {
             directory = "/var/lib/nixos";
@@ -53,7 +54,9 @@
               ".local/state/noctalia"
               ".local/share/direnv"
               ".local/share/qutebrowser"
-              ".config/chromium"
+              ".local/share/flatpak"
+              ".config/chromium/Default"
+              ".var/app"
               "Downloads"
               "Documents"
               "Dev"

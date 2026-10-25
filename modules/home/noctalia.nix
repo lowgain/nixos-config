@@ -1,6 +1,6 @@
 {inputs, ...}: {
   flake.homeModules.noctalia = {
-    imports = ["${inputs.home-manager-unstable}/modules/programs/noctalia.nix"];
+    imports = ["${inputs.home-manager-unstable}/modules/programs/noctalia"];
     programs.noctalia = {
       enable = true;
       settings = {
