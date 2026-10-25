@@ -53,7 +53,7 @@
               ".local/state/noctalia"
               ".local/share/direnv"
               ".local/share/qutebrowser"
-              ".config/chromium/Default"
+              ".config/chromium"
               "Downloads"
               "Documents"
               "Dev"
