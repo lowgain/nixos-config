@@ -35,6 +35,10 @@
           fontDir.enable = true;
         };
 
+        environment.systemPackages = with pkgs; [
+          qbittorrent
+        ];
+
         services = {
           avahi = {
             enable = true;
