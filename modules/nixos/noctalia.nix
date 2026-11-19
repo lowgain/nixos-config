@@ -1,6 +1,5 @@
 {
   self,
-  inputs,
   ...
 }: {
   flake.nixosModules.noctalia = {
@@ -8,9 +7,6 @@
     options,
     ...
   }: {
-    imports = [
-      "${inputs.nixpkgs-unstable}/nixos/modules/programs/wayland/noctalia.nix"
-    ];
     config = lib.mkMerge [
       {
         programs.noctalia = {

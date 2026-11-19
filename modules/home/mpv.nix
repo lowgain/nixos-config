@@ -15,6 +15,7 @@
             uosc
             sponsorblock
             youtube-upnext
+            eisa01.simplehistory
           ];
         }
       );

@@ -1,9 +1,5 @@
-{inputs, ...}: {
+{
   flake.homeModules.niri = {lib, ...}: {
-    imports = [
-      "${inputs.home-manager-unstable}/modules/services/window-managers/niri.nix"
-    ];
-
     programs.foot = {
       enable = true;
       settings = {

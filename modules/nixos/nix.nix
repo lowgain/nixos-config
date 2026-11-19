@@ -4,7 +4,7 @@
       config.allowUnfree = true;
       overlays = [
         (final: prev: {
-          unstable = import inputs.nixpkgs-unstable {
+          stable = import inputs.nixpkgs-stable {
             inherit (final) system config;
           };
         })

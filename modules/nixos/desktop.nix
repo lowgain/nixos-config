@@ -37,6 +37,7 @@
 
         environment.systemPackages = with pkgs; [
           qbittorrent
+          librewolf-bin
         ];
 
         services = {
