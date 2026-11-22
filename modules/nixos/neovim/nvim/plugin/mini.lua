@@ -1,5 +1,0 @@
-require("mini.pick").setup()
-require("mini.basics").setup()
--- require("mini.pairs").setup()
-require("mini.completion").setup()
-require("mini.icons").setup()

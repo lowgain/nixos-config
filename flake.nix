@@ -1,16 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-26.05";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    import-tree.url = "github:vic/import-tree";
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
 
     disko = {
       url = "github:nix-community/disko/latest";
@@ -18,9 +8,23 @@
     };
 
     preservation.url = "github:nix-community/preservation";
+
+    hjem = {
+      url = "github:feel-co/hjem";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;}
-    (inputs.import-tree ./modules);
+  outputs = inputs: {
+    formatter = builtins.mapAttrs (_: pkgs: pkgs.alejandra) inputs.nixpkgs.legacyPackages;
+    devShells = builtins.mapAttrs (_: pkgs: {
+      default = pkgs.mkShellNoCC {
+        packages = with pkgs; [
+          alejandra
+          nixd
+        ];
+      };
+    }) inputs.nixpkgs.legacyPackages;
+    nixosConfigurations = import ./hosts { inherit inputs; };
+  };
 }
