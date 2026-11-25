@@ -42,12 +42,10 @@ in {
         DynamicUser = true;
         ExecStart = ''${lib.getExe' cfg.package "kolibri"} start --port ${lib.toString cfg.port} --foreground'';
         ExecStop = ''${lib.getExe' cfg.package "kolibri"} stop'';
+        Restart = "on-failure";
         StateDirectory = "kolibri";
         StateDirectoryMode = "0750";
-        # RuntimeDirectory = "kolibri";
-        # RootDirectory = "/run/kolibri";
         LogsDirectory = "kolibri";
-        Restart = "on-failure";
       };
     };
 

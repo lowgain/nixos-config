@@ -1,0 +1,12 @@
+[user]
+  name = lowgain
+  email = logan.t2020@tutanota.com
+
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    ci = commit
+
+[init]
+    defaultBranch = main

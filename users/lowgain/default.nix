@@ -9,6 +9,9 @@
     };
     xdg.config.files = {
       "nvim/init.lua".source = ./dotfiles/nvim/init.lua;
+      "git/config".source = ./dotfiles/git/config;
+    };
+    files = {
       ".bashrc".source = ./dotfiles/bashrc;
     };
     packages = with pkgs; [

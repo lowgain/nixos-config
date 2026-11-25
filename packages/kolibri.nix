@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  # python314Packages,
 }:
 
 pkgs.python314Packages.buildPythonApplication (finalAttrs: {
