@@ -72,6 +72,7 @@
       qemu
       quickemu
       tpm2-tss
+      playerctl
     ];
   };
 
@@ -120,6 +121,12 @@
     ipp-usb.enable = true;
 
     resolved.enable = true;
+
+    kolibri = {
+      enable = false;
+      port = 8081;
+      openFirewall = true;
+    };
   };
 
   programs = {

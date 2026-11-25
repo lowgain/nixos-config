@@ -15,8 +15,9 @@
     };
   };
 
-  outputs = inputs: {
-    formatter = builtins.mapAttrs (_: pkgs: pkgs.alejandra) inputs.nixpkgs.legacyPackages;
+  outputs = {self, nixpkgs, ...}@inputs: {
+    formatter = builtins.mapAttrs (_: pkgs: pkgs.alejandra) nixpkgs.legacyPackages;
+
     devShells = builtins.mapAttrs (_: pkgs: {
       default = pkgs.mkShellNoCC {
         packages = with pkgs; [
@@ -24,7 +25,14 @@
           nixd
         ];
       };
-    }) inputs.nixpkgs.legacyPackages;
-    nixosConfigurations = import ./hosts { inherit inputs; };
+    }) nixpkgs.legacyPackages;
+
+    packages = builtins.mapAttrs (_: pkgs: {
+      kolibri = pkgs.callPackage ./packages/kolibri.nix { };
+    }) nixpkgs.legacyPackages;
+
+    nixosModules.kolibri = ./modules/kolibri.nix;
+
+    nixosConfigurations = import ./hosts { inherit inputs self; };
   };
 }

@@ -9,6 +9,7 @@
     };
     xdg.config.files = {
       "nvim/init.lua".source = ./dotfiles/nvim/init.lua;
+      ".bashrc".source = ./dotfiles/bashrc;
     };
     packages = with pkgs; [
       neovim

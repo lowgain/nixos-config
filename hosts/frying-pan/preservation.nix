@@ -58,6 +58,7 @@
             ".config/qBittorrent"
             ".config/xfce4"
             ".var/app"
+            ".kolibri"
             "Desktop"
             "Documents"
             "Downloads"
