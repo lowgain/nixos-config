@@ -73,6 +73,8 @@
       quickemu
       tpm2-tss
       playerctl
+      xfce4-mpc-plugin
+      xfce4-whiskermenu-plugin
     ];
   };
 
