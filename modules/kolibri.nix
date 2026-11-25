@@ -46,6 +46,47 @@ in {
         StateDirectory = "kolibri";
         StateDirectoryMode = "0750";
         LogsDirectory = "kolibri";
+        ProtectSystem = "full";
+        ProtectHome = true;
+        PrivateTmp = true;
+        PrivateDevices = true;
+        DevicePolicy = "closed";
+        PrivateMounts = true;
+        PrivateIPC = true;
+        ProtectKernelTunables = true;
+        ProtectKernelModules = true;
+        ProtectKernelLogs = true;
+        ProtectControlGroups = true;
+        ProtectHostname = true;
+        RemoveIPC = true;
+        LockPersonality = true;
+        RestrictRealtime = true;
+        ProtectClock = true;
+        MemoryDenyWriteExecute = true;
+        RestrictAddressFamilies = [
+          "AF_INET"
+          "AF_INET6"
+          "AF_NETLINK"
+          "AF_UNIX"
+        ];
+        CapabilityBoundingSet = "";
+        SystemCallFilter = [
+          "@system-service"
+        ];
+        UMask = "0007";
+        DeviceAllow = "";
+        NoNewPrivileges = true;
+        PrivateUsers = true;
+        RestrictSUIDSGID = true;
+        RuntimeDirectory = "kolibri";
+        BindReadOnlyPaths = [
+          builtins.storeDir
+          "${config.security.pki.caBundle}:/etc/ssl/certs/ca-certificates.crt"
+          "-/etc/resolv.conf"
+        ] ++ lib.optionals config.services.resolved.enable [
+          "/run/systemd/resolve/stub-resolv.conf"
+          "/run/systemd/resolve/resolv.conf"  
+        ];
       };
     };
 

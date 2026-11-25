@@ -123,7 +123,7 @@
     resolved.enable = true;
 
     kolibri = {
-      enable = false;
+      enable = true;
       port = 8081;
       openFirewall = true;
     };
